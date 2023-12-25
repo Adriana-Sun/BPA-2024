@@ -48,3 +48,8 @@ body {
 h1 {
     text-align: center;
 }
+.bottom-bar{
+    border: 5px double white;
+    background-color: black;
+
+}
