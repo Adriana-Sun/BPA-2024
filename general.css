@@ -44,6 +44,11 @@ body {
 }
 
 .navBar a.active{
-    background-color: white;
-    color: var(--mainText);
+    background-color: var(--subAccent);
+    color: var(--subBg);
+}
+.bottom-bar{
+    border: 5px double white;
+    background-color: black;
+
 }
