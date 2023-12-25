@@ -1,0 +1,50 @@
+html
+{
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+    background-color: white;
+}
+
+:root {
+    --mainBg: #C8E0F4;
+    --subBg: #031927;
+    --mainText: #C8E0F4;
+    --accent: #BEAE60;
+    --subAccent: #C3979F;
+}
+
+body {
+    width: 90%;
+    margin: auto;
+    color: var(--subBg)
+}
+
+.navBar{
+    border-bottom: 3px solid var(--accent);
+    background-color: var(--subBg);
+    overflow: hidden;
+}
+
+.navBar a {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 12px;
+    text-decoration: none;
+    float: left;
+}
+
+.navBar a:hover{
+    background-color: var(--mainBg);
+    color: var(--subBg);
+}
+
+.navBar a.active{
+    background-color: var(--subAccent);
+    color: var(--subBg);
+}
+
+h1 {
+    text-align: center;
+}
