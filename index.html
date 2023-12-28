@@ -1,26 +1,47 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>BPA Project 2024</title>
+        <title>Game Day Grill</title>
+
+        <!-- Linking the General CSS Sheet -->
         <link href="general.css" rel="stylesheet">
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
+
+        <!-- Making homepage-specific CSS -->
+        <style>
+            h1 {
+                font: 64px "Bungee", sans-serif;
+                color: white;
+                text-shadow: 6px 6px var(--subAccent);
+                height: 30vh;
+                background-image: url("placeholder-header.jpeg");
+                background-size: cover;
+                background-attachment: fixed;
+                margin: auto;
+                line-height: 30vh;
+                text-align: center;
+            }
+            
+            p{
+                width: 90%;
+                margin: 2em auto;
+            }
+        </style>
     </head>
 
     <body>
         <div class="navBar">
             <a class="active" href="index.html">Home</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact">Reservations</a>
             <a href="#about">About Us</a>
         </div>
 
-        <div class="header">
-            <h1>Welcome to our website!</h1>
-        </div>
+        <h1>Game Day Grill</h1>
         
-        <div>
+        <div class="Menu">
             <p>Filler text. Ducks are cool. Geese are scary. Cormorands are invading.</p>
         </div>
     </body>
