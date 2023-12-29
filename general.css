@@ -53,8 +53,9 @@ h1 {
     text-align: center;
 }
 
-#box{
-    background-color: #031927;
+.box{
+    margin: auto;
+    background-color: #aabeca;
     border: 1px solid #000000;
     width: 100%;
     height: 150px;
