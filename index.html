@@ -34,13 +34,16 @@
                 border-radius: 10px;
                 height: 8vh;
                 width: 150px;
-            }
-            .orderButton a{
                 text-shadow: 1px 1px 1px var(--mainText);
                 text-decoration: none;
                 text-align: center;
                 font: bold 18px "Lexend", sans-serif;
                 color: white;
+            }
+
+            .orderButton:hover{
+                background-color: var(--subAccent);
+                cursor: pointer;
             }
 
             .homeHeader h1{
@@ -50,21 +53,29 @@
                 margin: 0;
                 
             }
-            
-            /* p{
-                width: 90%;
-                margin: 2em auto;
-            } */
 
             .menuCarousel{
                 width: 90%;
+                height: 500px;
                 margin: 2em auto;
+                
+                /* justify-content: center; */
+                overflow: hidden;
+            }
+
+            .menuWrapper{
+                position: relative;
+                display: flex;
+                align-items: center;
+                transform: translateX(0);
             }
 
             .slideItem{
                 width: 350px;
+                margin: 0 20px 0 0;
                 padding-bottom: 10px;
                 box-shadow: 5px 5px 5px var(--mainBg);
+                /* transition: all .3s cubic-bezier(0, .67, .45, 1.3); */
             }
 
             .slideImg{
@@ -79,6 +90,7 @@
             }
 
             .slideText h1{
+                font-size: 28px;
                 color: var(--subAccent);
             }
 
@@ -103,7 +115,7 @@
         <div class="homeHeader">
             <div class="homeWrapper">
                 <h1>Game Day Grill</h1>
-                <button class="orderButton"><a href="#">Order now</a></button>
+                <a href="#"><button class="orderButton">Order now</button></a>
             </div>
         </div>
 
@@ -111,14 +123,49 @@
             <h1>Featured Items</h1>
         </div>
         <div class="menuCarousel">
-            <div class="slideItem">
-                <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
-                    of the image. The license requires it to be linked back. -->
-                <img src="images/burger-fries.jpeg" class="slideImg">
-                <div class="slideText">
-                    <h1>Burger with fries</h1>
-                    <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                    <p>$6.99 </p>
+            <div class="menuWrapper">
+                <div class="slideItem">
+                    <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
+                        of the image. The license requires it to be linked back. -->
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
+                    </div>
+                </div>
+
+                <div class="slideItem">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 2</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
+                    </div>
+                </div>
+                <div class="slideItem">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 3</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
+                    </div>
+                </div>
+                <div class="slideItem">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 4</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
+                    </div>
+                </div>
+                <div class="slideItem">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 5</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
+                    </div>
                 </div>
             </div>
         </div>
