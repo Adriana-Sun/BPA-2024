@@ -1,5 +1,5 @@
 /* Importing Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lexend&family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lexend:wght@400;800&family=Poppins&display=swap');
 
 html {
     background-color: white;
@@ -24,7 +24,10 @@ body {
     height: 8vh;
     border-bottom: 3px solid var(--subAccent);
     background-color: var(--subBg);
+    position: fixed;
+    top: 0;
     overflow: hidden;
+    z-index: 1;
 }
 
 .navBar a {
