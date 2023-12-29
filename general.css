@@ -1,56 +1,51 @@
-html
-{
-    /* background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lexend&family=Poppins&display=swap');
+
+html {
     background-color: white;
 }
 
 :root {
-    --mainBg: #C8E0F4;
-    --subBg: #031927;
-    --mainText: #C8E0F4;
-    --accent: #BEAE60;
-    --subAccent: #C3979F;
+    --mainBg: #DADCE7;
+    --subBg: #fd9c19;
+    --mainText: #010C13;
+    --accent: #fff94d;
+    --subAccent: #c95a00;
 }
 
 body {
-    margin: auto;
-    color: var(--subBg)
-}
-
-div{
-    margin: auto 10%;
+    margin: 0 auto; /* this centers the body horizontally */
+    color: var(--mainText);
+    font: 18px "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
 }
 
 .navBar{
-    margin: auto;
-    border-bottom: 3px solid var(--accent);
+    width: 100%;
+    height: 8vh;
+    border-bottom: 3px solid var(--subAccent);
     background-color: var(--subBg);
     overflow: hidden;
 }
 
 .navBar a {
     color: white;
+    line-height: 8vh;
     text-align: center;
-    font-size: 18px;
-    padding: 10px 12px;
+    font-size: 20px;
+    padding: 0px 12px;
     text-decoration: none;
+    height: 8vh;
     float: left;
 }
 
 .navBar a:hover{
-    background-color: var(--mainBg);
-    color: var(--subBg);
+    background-color: var(--subAccent);
+    /*color: var(--subBg);*/
 }
 
 .navBar a.active{
-    background-color: var(--subAccent);
-    color: var(--subBg);
-}
-
-h1 {
-    text-align: center;
+    background-color: white;
+    color: var(--mainText);
 }
 
 .box{
