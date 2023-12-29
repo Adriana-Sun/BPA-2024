@@ -15,12 +15,16 @@ html
 }
 
 body {
-    width: 90%;
     margin: auto;
     color: var(--subBg)
 }
 
+div{
+    margin: auto 10%;
+}
+
 .navBar{
+    margin: auto;
     border-bottom: 3px solid var(--accent);
     background-color: var(--subBg);
     overflow: hidden;
