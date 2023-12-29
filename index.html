@@ -11,22 +11,83 @@
 
         <!-- Making homepage-specific CSS -->
         <style>
-            h1 {
-                font: 64px "Bungee", sans-serif;
-                color: white;
-                text-shadow: 6px 6px var(--subAccent);
-                height: 30vh;
-                background-image: url("placeholder-header.jpeg");
+            .homeHeader{
+                display: flex;
+                justify-content: center;
+                margin-top: 8vh;
+                height: 40vh;
+                background-image: url("images/placeholder-header.jpeg");
                 background-size: cover;
-                background-attachment: fixed;
-                margin: auto;
-                line-height: 30vh;
+                background-position-y: 40vh;
+                padding: 20vh auto;
                 text-align: center;
             }
+
+            .homeWrapper{
+                padding: 10vh auto;
+                margin: auto;
+            }
+
+            .orderButton{
+                background-color: var(--subBg);
+                border: 2px solid var(--subAccent);
+                border-radius: 10px;
+                height: 8vh;
+                width: 150px;
+            }
+            .orderButton a{
+                text-shadow: 1px 1px 1px var(--mainText);
+                text-decoration: none;
+                text-align: center;
+                font: bold 18px "Lexend", sans-serif;
+                color: white;
+            }
+
+            .homeHeader h1{
+                font: 80px "Bungee", sans-serif;
+                color: white;
+                text-shadow: 6px 6px var(--subAccent);
+                margin: 0;
+                
+            }
             
-            p{
+            /* p{
                 width: 90%;
                 margin: 2em auto;
+            } */
+
+            .menuCarousel{
+                width: 90%;
+                margin: 2em auto;
+            }
+
+            .slideItem{
+                width: 350px;
+                padding-bottom: 10px;
+                box-shadow: 5px 5px 5px var(--mainBg);
+            }
+
+            .slideImg{
+                object-fit: cover;
+                width: 350px;
+                height: 250px;
+            }
+
+            .slideText{
+                width: 90%;
+                margin: auto;
+            }
+
+            .slideText h1{
+                color: var(--subAccent);
+            }
+
+            .menuHeader{
+                font: 20px "Bungee", sans-serif;
+                width: 90%;
+                margin: 2em auto;
+                color: var(--subBg);
+                text-shadow: 2px 2px var(--subAccent);
             }
         </style>
     </head>
@@ -39,10 +100,27 @@
             <a href="#about">About Us</a>
         </div>
 
-        <h1>Game Day Grill</h1>
-        
-        <div class="Menu">
-            <p>Filler text. Ducks are cool. Geese are scary. Cormorands are invading.</p>
+        <div class="homeHeader">
+            <div class="homeWrapper">
+                <h1>Game Day Grill</h1>
+                <button class="orderButton"><a href="#">Order now</a></button>
+            </div>
+        </div>
+
+        <div class="menuHeader">
+            <h1>Featured Items</h1>
+        </div>
+        <div class="menuCarousel">
+            <div class="slideItem">
+                <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
+                    of the image. The license requires it to be linked back. -->
+                <img src="images/burger-fries.jpeg" class="slideImg">
+                <div class="slideText">
+                    <h1>Burger with fries</h1>
+                    <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                    <p>$6.99 </p>
+                </div>
+            </div>
         </div>
         <div class="box">
             <a href = "#contact">CONTACT US</a>
