@@ -13,94 +13,112 @@
         <style>
             .homeHeader{
                 display: flex;
-                justify-content: center;
-                margin-top: 8vh;
+                margin-top: 60px;
                 height: 40vh;
                 background-image: url("images/placeholder-header.jpeg");
                 background-size: cover;
                 background-position-y: 40vh;
-                padding: 20vh auto;
                 text-align: center;
             }
-
-            .homeWrapper{
-                padding: 10vh auto;
-                margin: auto;
-            }
-
-            .orderButton{
-                background-color: var(--subBg);
-                border: 2px solid var(--subAccent);
-                border-radius: 10px;
-                height: 8vh;
-                width: 150px;
-                text-shadow: 1px 1px 1px var(--mainText);
-                text-decoration: none;
-                text-align: center;
-                font: bold 18px "Lexend", sans-serif;
-                color: white;
-            }
-
-            .orderButton:hover{
-                background-color: var(--subAccent);
-                cursor: pointer;
-            }
-
-            .homeHeader h1{
-                font: 80px "Bungee", sans-serif;
-                color: white;
-                text-shadow: 6px 6px var(--subAccent);
-                margin: 0;
-                
-            }
+                .homeWrapper{
+                    margin: auto;
+                }
+                    .homeHeader h1{
+                        font: 80px "Bungee", sans-serif;
+                        color: white;
+                        text-shadow: 6px 6px var(--subAccent);
+                        margin: 0;
+                    }
+                    .orderButton{
+                        display: inline-flex;
+                        justify-content: center;
+                        align-items: center;
+                        background-color: var(--subBg);
+                        border: 2px solid var(--subAccent);
+                        border-radius: 10px;
+                        height: 8vh;
+                        width: 150px;
+                        text-shadow: 1px 1px 1px var(--mainText);
+                        font: bold 18px "Lexend", sans-serif;
+                        color: white;
+                    }
 
             .menuCarousel{
                 width: 90%;
                 height: 500px;
                 margin: 2em auto;
-                
-                /* justify-content: center; */
-                overflow: hidden;
+                text-align: center;
             }
+                .menuHeader{
+                    font: bold 40px "Lexend", sans-serif;
+                    width: 90%;
+                    margin: 1em auto;
+                    color: var(--subBg);
+                    text-shadow: 1px 1px var(--subAccent);
+                    text-align: center;
+                }
+                .menuContainer{
+                    height: 500px;
+                    width: calc(3 * 370px);
+                    margin: auto;
+                    overflow: hidden;
+                    transition: all .3s cubic-bezier(0, .67, .45, 1);
+                }
+                    .menuWrapper{
+                        display: flex;
+                        height: 100%;
+                        align-items: center;
+                        transform: translate3d(0,0,0);
+                        transition: all 0.3s cubic-bezier(0, .45, .67, 1);
+                    }
+                        
+                        .slideItem{
+                            width: 350px;
+                            margin: 0 20px 0 0;
+                            padding-bottom: 10px;
+                            box-shadow: 5px 5px 5px var(--mainBg);
+                            
+                        }
+                            .slideImg{
+                                object-fit: cover;
+                                width: 350px;
+                                height: 250px;
+                            }
+                            .slideText{
+                                width: 90%;
+                                margin: auto;
+                                text-align: left;
+                            }
+                            .slideText h1{
+                                font-size: 28px;
+                                color: var(--subAccent);
+                            }
+                        @media (max-width: 1100px){
+                            .menuContainer{
+                                width: calc(2 * 370px);
+                            }
+                        }
 
-            .menuWrapper{
-                position: relative;
-                display: flex;
-                align-items: center;
-                transform: translateX(0);
-            }
-
-            .slideItem{
-                width: 350px;
-                margin: 0 20px 0 0;
-                padding-bottom: 10px;
-                box-shadow: 5px 5px 5px var(--mainBg);
-                /* transition: all .3s cubic-bezier(0, .67, .45, 1.3); */
-            }
-
-            .slideImg{
-                object-fit: cover;
-                width: 350px;
-                height: 250px;
-            }
-
-            .slideText{
-                width: 90%;
-                margin: auto;
-            }
-
-            .slideText h1{
-                font-size: 28px;
-                color: var(--subAccent);
-            }
-
-            .menuHeader{
-                font: 20px "Bungee", sans-serif;
-                width: 90%;
-                margin: 2em auto;
-                color: var(--subBg);
-                text-shadow: 2px 2px var(--subAccent);
-            }
+                        @media (max-width: 740px){
+                            .menuContainer{
+                                width: 370px;
+                            }
+                        }
+                .menuSlider{
+                    border: none;
+                    border-radius: 100%;
+                    background-color: var(--mainText);
+                    margin: 0 5px;
+                    width: 20px;
+                    height: 20px;
+                }
+                .menuSlider:hover{
+                    background-color: var(--subAccent);
+                    cursor: pointer;
+                }
+                .menuCarousel .active{
+                    background-color: var(--subBg);
+                }
         </style>
     </head>
 
@@ -108,6 +126,7 @@
         <div class="navBar">
             <a class="active" href="index.html">Home</a>
             <a href="#menu">Menu</a>
+            <a href="#events">Events</a>
             <a href="#contact">Reservations</a>
             <a href="#about">About Us</a>
         </div>
@@ -115,59 +134,62 @@
         <div class="homeHeader">
             <div class="homeWrapper">
                 <h1>Game Day Grill</h1>
-                <a href="#"><button class="orderButton">Order now</button></a>
+                <a class="orderButton" href="#menu">Order now</a>
             </div>
         </div>
+        
+        <h1 class="menuHeader">Featured Items</h1>
 
-        <div class="menuHeader">
-            <h1>Featured Items</h1>
-        </div>
-        <div class="menuCarousel">
-            <div class="menuWrapper">
-                <div class="slideItem">
-                    <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
-                        of the image. The license requires it to be linked back. -->
-                    <img src="images/burger-fries.jpeg" class="slideImg">
-                    <div class="slideText">
-                        <h1>Burger with fries</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+        <div class="menuCarousel" aria-label="Menu Content Slider">
+            <!-- <button id="leftArrow">&lt;</button>
+            <button id="rightArrow">&gt;</button> -->
+            <div class="menuContainer">
+                <div class="menuWrapper">
+                    <div class="slideItem">
+                        <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
+                            of the image. The license requires it to be linked back. -->
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Burger with fries</h1>
+                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <p>$6.99 </p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="slideItem">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
-                    <div class="slideText">
-                        <h1>Burger with fries 2</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                    <div class="slideItem">
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Burger with fries 2</h1>
+                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <p>$6.99 </p>
+                        </div>
                     </div>
-                </div>
-                <div class="slideItem">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
-                    <div class="slideText">
-                        <h1>Burger with fries 3</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                    <div class="slideItem">
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Burger with fries 3</h1>
+                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <p>$6.99 </p>
+                        </div>
                     </div>
-                </div>
-                <div class="slideItem">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
-                    <div class="slideText">
-                        <h1>Burger with fries 4</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                    <div class="slideItem">
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Burger with fries 4</h1>
+                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <p>$6.99 </p>
+                        </div>
                     </div>
-                </div>
-                <div class="slideItem">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
-                    <div class="slideText">
-                        <h1>Burger with fries 5</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                    <div class="slideItem">
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Burger with fries 5</h1>
+                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <p>$6.99 </p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <button class="menuSlider" data-slideAmt="0px"></button> <button class="menuSlider" data-slideAmt="-740px"></button>
         </div>
         <div id="box">
             <a href="index.html">
@@ -198,4 +220,54 @@
             </a>
         </div>
     </body>
+
+    <script>
+        // Content Slider Code
+        var items = document.querySelectorAll(".slideItem");
+        var sliders = document.querySelectorAll(".menuSlider");
+        var menuWrapper = document.querySelector(".menuWrapper");
+ 
+        // stores which menuSlider button is currently active (being shown)
+        var activeSlider = 0;
+        
+        // setup the event listeners for each slider button
+        for (var i = 0; i < sliders.length; i++) {
+            var slider = sliders[i];
+            slider.addEventListener('click', setClickedSlider);
+        
+            // auto-assigns each slider with an ID (from 0 to i)
+            slider.id = i;
+        }
+        
+        // set first slider as active
+        sliders[activeSlider].classList.add("active");
+        
+        function setClickedSlider(e) {
+            removeActiveSliders();  //clearing "active" from all sliders
+
+            var clickedSlider = e.target;
+            activeSlider = clickedSlider.id;    //setting active slider to clicked one
+        
+            //now we call a function to slide the wrapper to give the illusion of moving
+            changePosition(clickedSlider); 
+        }
+        
+        function removeActiveSliders() {
+            for (var i = 0; i < sliders.length; i++) {
+                sliders[i].classList.remove("active");
+            }
+        }
+        
+        // Slide the wrapper to show the next items,
+        // but also making sure not to go over *
+        // as well as setting the right slider to "active"
+        function changePosition(slider) {
+            var slideVal = slider.getAttribute("data-slideAmt");
+        
+            var translateValue = "translate3d(" + slideVal + ", 0px, 0)";
+            menuWrapper.style.transform = translateValue;
+        
+            slider.classList.add("active");
+        }
+    </script>
 </html>
