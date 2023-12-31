@@ -52,7 +52,7 @@
                 .menuHeader{
                     font: bold 40px "Lexend", sans-serif;
                     width: 90%;
-                    margin: 1em auto;
+                    margin: 1em auto auto;
                     color: var(--subBg);
                     text-shadow: 1px 1px var(--subAccent);
                     text-align: center;
@@ -67,19 +67,21 @@
                     .menuWrapper{
                         display: flex;
                         height: 100%;
+                        width: fit-content;
                         align-items: center;
                         transform: translate3d(0,0,0);
-                        transition: all 0.3s cubic-bezier(0, .45, .67, 1);
+                        transition: all 0.5s ease 0s;
                     }
                         
-                        .slideItem{
+                        .menuCarousel .slideItem{
                             width: 350px;
-                            margin: 0 20px 0 0;
+                            margin-left: 10px;
+                            margin-right: 10px;
                             padding-bottom: 10px;
                             box-shadow: 5px 5px 5px var(--mainBg);
                             
                         }
-                            .slideImg{
+                            .menuCarousel .slideImg{
                                 object-fit: cover;
                                 width: 350px;
                                 height: 250px;
@@ -93,18 +95,18 @@
                                 font-size: 28px;
                                 color: var(--subAccent);
                             }
-                        @media (max-width: 1100px){
+                        @media (max-width: 1150px){
                             .menuContainer{
                                 width: calc(2 * 370px);
                             }
                         }
 
-                        @media (max-width: 740px){
+                        @media (max-width: 750px){
                             .menuContainer{
                                 width: 370px;
                             }
                         }
-                .menuSlider{
+                .slider{
                     border: none;
                     border-radius: 100%;
                     background-color: var(--mainText);
@@ -112,11 +114,11 @@
                     width: 20px;
                     height: 20px;
                 }
-                .menuSlider:hover{
+                .slider:hover{
                     background-color: var(--subAccent);
                     cursor: pointer;
                 }
-                .menuCarousel .active{
+                .slider.active{
                     background-color: var(--subBg);
                 }
         </style>
@@ -141,8 +143,6 @@
         <h1 class="menuHeader">Featured Items</h1>
 
         <div class="menuCarousel" aria-label="Menu Content Slider">
-            <!-- <button id="leftArrow">&lt;</button>
-            <button id="rightArrow">&gt;</button> -->
             <div class="menuContainer">
                 <div class="menuWrapper">
                     <div class="slideItem">
@@ -189,57 +189,8 @@
                     </div>
                 </div>
             </div>
-            <button class="menuSlider" data-slideAmt="0px"></button> <button class="menuSlider" data-slideAmt="-740px"></button>
         </div>
     </body>
 
-    <script>
-        // Content Slider Code
-        var items = document.querySelectorAll(".slideItem");
-        var sliders = document.querySelectorAll(".menuSlider");
-        var menuWrapper = document.querySelector(".menuWrapper");
- 
-        // stores which menuSlider button is currently active (being shown)
-        var activeSlider = 0;
-        
-        // setup the event listeners for each slider button
-        for (var i = 0; i < sliders.length; i++) {
-            var slider = sliders[i];
-            slider.addEventListener('click', setClickedSlider);
-        
-            // auto-assigns each slider with an ID (from 0 to i)
-            slider.id = i;
-        }
-        
-        // set first slider as active
-        sliders[activeSlider].classList.add("active");
-        
-        function setClickedSlider(e) {
-            removeActiveSliders();  //clearing "active" from all sliders
-
-            var clickedSlider = e.target;
-            activeSlider = clickedSlider.id;    //setting active slider to clicked one
-        
-            //now we call a function to slide the wrapper to give the illusion of moving
-            changePosition(clickedSlider); 
-        }
-        
-        function removeActiveSliders() {
-            for (var i = 0; i < sliders.length; i++) {
-                sliders[i].classList.remove("active");
-            }
-        }
-        
-        // Slide the wrapper to show the next items,
-        // but also making sure not to go over *
-        // as well as setting the right slider to "active"
-        function changePosition(slider) {
-            var slideVal = slider.getAttribute("data-slideAmt");
-        
-            var translateValue = "translate3d(" + slideVal + ", 0px, 0)";
-            menuWrapper.style.transform = translateValue;
-        
-            slider.classList.add("active");
-        }
-    </script>
+    <script src="index.js"></script>
 </html>
