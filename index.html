@@ -51,8 +51,8 @@
             }
                 .menuHeader{
                     font: bold 40px "Lexend", sans-serif;
-                    width: 90%;
-                    margin: 1em auto auto;
+                    width: 100%;
+                    margin: 1em auto;
                     color: var(--subBg);
                     text-shadow: 1px 1px var(--subAccent);
                     text-align: center;
@@ -75,6 +75,7 @@
                         
                         .menuCarousel .slideItem{
                             width: 350px;
+                            height: 465px;
                             margin-left: 10px;
                             margin-right: 10px;
                             padding-bottom: 10px;
@@ -87,6 +88,7 @@
                                 height: 250px;
                             }
                             .slideText{
+                                font-size: 16px;
                                 width: 90%;
                                 margin: auto;
                                 text-align: left;
@@ -95,32 +97,79 @@
                                 font-size: 28px;
                                 color: var(--subAccent);
                             }
-                        @media (max-width: 1150px){
-                            .menuContainer{
-                                width: calc(2 * 370px);
-                            }
-                        }
+                @media (max-width: 1150px){
+                    .menuContainer{
+                        width: calc(2 * 370px);
+                    }
+                }
 
-                        @media (max-width: 750px){
-                            .menuContainer{
-                                width: 370px;
-                            }
+                @media (max-width: 750px){
+                    .menuContainer{
+                        width: 370px;
+                    }
+                }
+
+            .eventsCarousel{
+                width: 90%;
+                margin: 2em auto;
+                text-align: center;
+            }
+                .eventsHeader{
+                    font: bold 40px "Lexend", sans-serif;
+                    width: 100%;
+                    margin: 2em 1em auto auto;
+                    color: var(--subBg);
+                    text-shadow: 1px 1px var(--subAccent);
+                    text-align: center;
+                }
+                .eventsContainer{
+                    height: 550px;
+                    width: calc(2 * 555px);
+                    margin: auto;
+                    overflow: hidden;
+                    transition: all .3s cubic-bezier(0, .67, .45, 1);
+                }
+                    .eventsWrapper{
+                        display: flex;
+                        height: 100%;
+                        width: fit-content;
+                        align-items: center;
+                        transform: translate3d(0,0,0);
+                        transition: all 0.5s ease 0s;
+                    }
+                        .eventsCarousel .slideItem{
+                            width: 525px;
+                            height: 500px;
+                            margin-left: 15px;
+                            margin-right: 15px;
+                            padding-bottom: 10px;
+                            box-shadow: 5px 5px 5px var(--mainBg);
                         }
-                .slider{
-                    border: none;
-                    border-radius: 100%;
-                    background-color: var(--mainText);
-                    margin: 0 5px;
-                    width: 20px;
-                    height: 20px;
+                            .eventsCarousel .slideImg{
+                                object-fit: cover;
+                                width: 100%;
+                                height: 300px;
+                            }
+                @media (max-width: 1110px){
+                    .eventsContainer{
+                        width: 555px;
+                    }
                 }
-                .slider:hover{
-                    background-color: var(--subAccent);
-                    cursor: pointer;
-                }
-                .slider.active{
-                    background-color: var(--subBg);
-                }
+            .slider{
+                border: none;
+                border-radius: 100%;
+                background-color: var(--mainText);
+                margin: 0 5px;
+                width: 20px;
+                height: 20px;
+            }
+            .slider:hover{
+                background-color: var(--subAccent);
+                cursor: pointer;
+            }
+            .slider.active{
+                background-color: var(--subBg);
+            }
         </style>
     </head>
 
@@ -142,32 +191,36 @@
         
         <h1 class="menuHeader">Featured Items</h1>
 
-        <div class="menuCarousel" aria-label="Menu Content Slider">
+        <div class="menuCarousel">
             <div class="menuContainer">
                 <div class="menuWrapper">
                     <div class="slideItem">
                         <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
                             of the image. The license requires it to be linked back. -->
-                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <img src="images/burger-fries.jpeg" class="slideImg" alt="Image of a double burger and fries in the background">
                         <div class="slideText">
-                            <h1>Burger with fries</h1>
-                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                            <p>$6.99 </p>
+                            <h1>Classic Double GameBurger</h1>
+                            <p>A classic layered with cheese, lettuce, mayo, and includes small fries!</p>
+                            <p>$13.99 </p>
                         </div>
                     </div>
                     <div class="slideItem">
-                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <!-- Note: https://www.flickr.com/photos/ilove9and23/11497620976 is the source of the image. 
+                            Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
+                            Author: Debbie Tingzon 
+                            License: Creative Commons by 2.0-->
+                        <img src="images/rib-eyed-steak.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
                         <div class="slideText">
-                            <h1>Burger with fries 2</h1>
-                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                            <p>$6.99 </p>
+                            <h1>Grandma's Rib-Eye Steak</h1>
+                            <p>A 18 ounce steak so delicious even your grandma would approve! </p>
+                            <p>$19.99 </p>
                         </div>
                     </div>
                     <div class="slideItem">
-                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <img src="images/brownies.jpeg" class="slideImg" alt="Image of brownies with chocolate drizzle on top">
                         <div class="slideText">
-                            <h1>Burger with fries 3</h1>
-                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                            <h1>Triple Chocolate Brownies</h1>
+                            <p>Fresh brownies with chocolate drizzle and ganache filling.</p>
                             <p>$6.99 </p>
                         </div>
                     </div>
@@ -190,6 +243,40 @@
                 </div>
             </div>
         </div>
+
+        <h1 class="eventsHeader">Special Events</h1>
+
+        <div class="eventsCarousel">
+            <div class="eventsContainer">
+                <div class="eventsWrapper">
+                    <div class="slideItem">
+                        <img src="images/burger-fries.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Grand Opening</h1>
+                            <p>To celebrate our opening, Game Day Grill is giving a $10 gift card when you </p>
+                            <p>$13.99 </p>
+                        </div>
+                    </div>
+                    <div class="slideItem">
+                        <img src="images/rib-eyed-steak.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Grandma's Rib-Eye Steak</h1>
+                            <p>A 18 ounce steak so delicious even your grandma would approve! </p>
+                            <p>$19.99 </p>
+                        </div>
+                    </div>
+                    <div class="slideItem">
+                        <img src="images/brownies.jpeg" class="slideImg">
+                        <div class="slideText">
+                            <h1>Triple Chocolate Brownies</h1>
+                            <p>Fresh brownies with chocolate drizzle and ganache filling.</p>
+                            <p>$6.99 </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div id="box">
             <a href="index.html">
                 <img class="logo" src="https://th.bing.com/th/id/OIP.zISRSOrQF36FlkP0kYMCiwHaHa?rs=1&pid=ImgDetMain">
