@@ -1,103 +1,114 @@
-var body = document.querySelector("body");
-var fragment = new DocumentFragment();  // since a document fragment is emptied when added, we can reuse it
-
-// General content slider functions
-function addSliders(carousel, containerClipWidth, wrapperWidth){
-    // calculating the number of button sliders needed to scroll through all of the content
-    var numButtons = Math.ceil(wrapperWidth / containerClipWidth);
-
-    if(numButtons > 1){ // if the content can't fit within the container (resulting in numButtons > 1)
-        for(let i = 0; i < numButtons; i++){    // create that many buttons and append it to the doc fragment
-            let sldBtn = document.createElement("button");
-            sldBtn.classList.add("slider");
-
-            if(i == 0)  // the first slider button should always have a data-slideAmt of 0px
-                sldBtn.setAttribute("data-slideAmt", "0px");
-            else if(i == numButtons - 1){ // the last slider button should not slide beyond the amount of items remaining
-                let widthNeeded = wrapperWidth - containerClipWidth;
-                sldBtn.setAttribute("data-slideAmt", (-1 * widthNeeded) + "px");
-            }
-            else{  // every other slider button should slide the full amount
-                sldBtn.setAttribute("data-slideAmt", (-1 * containerClipWidth * i) + "px");
-            }
-            
-            fragment.appendChild(sldBtn);
-        }
-        carousel.appendChild(fragment);
-    }
-}
-function setupSliders(sliders, type){
-    // setup the event listeners for each slider button
-    for (let i = 0; i < sliders.length; i++) {
-        var slider = sliders[i];
-        slider.addEventListener('click', setClickedSlider);
-
-        // auto-assigns each slider with an ID (from 0 to i)
-        slider.id = i;
-    }
-}
+const body = document.querySelector("body");
 
 /* MENU SLIDER SETUP CODE */
-var menuWrapper = document.querySelector(".menuWrapper");
 var menuContainer = document.querySelector(".menuContainer");
-var menuCarousel = document.querySelector(".menuCarousel");
-var menuItems = menuCarousel.querySelectorAll(".slideItem");
-const menuWrapWidth = menuWrapper.clientWidth;    // this should be a constant
-addSliders(menuCarousel, menuContainer.clientWidth, menuWrapWidth);
+const menuWrapper = document.querySelector(".menuWrapper");
+const menuItems = menuWrapper.querySelectorAll(".slideItem");
+let menuDragStart = false, prevMenuX, prevMenuScroll;
 
-var menuSliders = menuCarousel.querySelectorAll(".slider");
+const arrowMenuSliders = menuContainer.querySelectorAll(".arrowSlider");
+let firstMenuItemWidth = menuItems[0].clientWidth + 20;    // width + margin (20px)
+arrowMenuSliders.forEach((arrow) => {
+    arrow.addEventListener("click", () =>{
+        if(arrow.id == "left")
+            menuWrapper.scrollLeft -= firstMenuItemWidth;
+        else
+            menuWrapper.scrollLeft += firstMenuItemWidth;
+    });
+});
 
-// stores which menuSlider button is currently active (being shown)
-var activeMSlider = 0;
-setupSliders(menuSliders, "menu");
+// TODO: make arrows disappear if at edge
 
-// set first slider as active
-menuSliders[activeMSlider].classList.add("active");
+// let menuScrollWidth = menuWrapper.scrollWidth - menuWrapper.clientWidth;
+// const showHideIcons = () =>{
+//     if(menuWrapper.scrollLeft === 0)
+//         arrowMenuSliders[0].style.display = "none";
+//     else
+//         arrowMenuSliders[0].style.display = "block";
+
+//     if(menuWrapper.scrollLeft === menuScrollWidth)
+//         arrowMenuSliders[1].style.display = "none";
+//     else
+//         arrowMenuSliders[1].style.display = "block";
+// }
+
+// TODO: snap to slideItem
+
+function dragMenuStart(e){
+    menuDragStart = true;
+    prevMenuX = e.pageX || e.touches[0].pageX;
+    prevMenuScroll = menuWrapper.scrollLeft;
+}
+
+function draggingMenu(e){
+    if(!menuDragStart) return;  // if the mouse is not dragging, then don't move the wrapper
+    e.preventDefault();
+    menuWrapper.classList.add("dragging");
+    let posDiff = (e.pageX || e.touches[0].pageX) - prevMenuX;  // calculating how much the position changes
+    menuWrapper.scrollLeft = prevMenuScroll - posDiff;  // scroll based on that amount
+}
+
+function dragMenuStop(){
+    menuDragStart = false;
+    menuWrapper.classList.remove("dragging");
+}
+
+// mouse events
+menuWrapper.addEventListener("mousedown", dragMenuStart);
+menuWrapper.addEventListener("mousemove", draggingMenu);
+menuWrapper.addEventListener("mouseup", dragMenuStop);
+
+// touch events (mobile)
+menuWrapper.addEventListener("touchstart", dragMenuStart);
+menuWrapper.addEventListener("touchmove", draggingMenu);
+menuWrapper.addEventListener("touchend", dragMenuStop);
 
 /* EVENTS SLIDER SETUP CODE */
-var eventsWrapper = document.querySelector(".eventsWrapper");
 var eventsContainer = document.querySelector(".eventsContainer");
-var eventsCarousel = document.querySelector(".eventsCarousel");
-var eventsItems = eventsCarousel.querySelectorAll(".slideItem");
-const eventsWrapWidth = eventsWrapper.clientWidth;    // this should be a constant
-addSliders(eventsCarousel, eventsContainer.clientWidth, eventsWrapWidth);
+const eventsWrapper = document.querySelector(".eventsWrapper");
+const eventsItems = eventsWrapper.querySelectorAll(".slideItem");
 
-var eventsSliders = eventsCarousel.querySelectorAll(".slider");
+let eventsDragStart = false, prevEventsX, prevEventsScroll;
 
-// stores which menuSlider button is currently active (being shown)
-var activeESlider = 0;
-setupSliders(eventsSliders);
+const arrowEventsSliders = eventsContainer.querySelectorAll(".arrowSlider");
+let firstEventsItemWidth = eventsItems[0].clientWidth + 25;    // width + margin (25px)
+arrowEventsSliders.forEach((arrow) => {
+    arrow.addEventListener("click", () =>{
+        if(arrow.id == "left")
+            eventsWrapper.scrollLeft -= firstEventsItemWidth;
+        else
+            eventsWrapper.scrollLeft += firstEventsItemWidth;
+    });
+});
 
-// set first slider as active
-eventsSliders[activeESlider].classList.add("active");
-
-/* SPECIFIC FUNCTIONS */
-function setClickedSlider(e) {
-    var clickedSlider = e.target;
-    var classType = clickedSlider.parentNode.className;
-    removeActiveSliders(classType);  //clearing "active" from all sliders
-
-    if(classType === "menuCarousel")
-        activeMSlider = clickedSlider.id;    //setting active slider to clicked one (menu)
-    else
-        activeESlider = clickedSlider.id;   //setting active slider to clicked one (events)
-
-    //now we call a function to slide the wrapper to give the illusion of moving
-    changePosition(clickedSlider); 
+function dragEventsStart(e){
+    eventsDragStart = true;
+    prevEventsX = e.pageX || e.touches[0].pageX;
+    prevEventsScroll = eventsWrapper.scrollLeft;
 }
 
-function removeActiveSliders(classType) {
-    if(classType === "menuCarousel"){
-        for (var i = 0; i < menuSliders.length; i++) {
-            menuSliders[i].classList.remove("active");
-        }
-    }
-    else{
-        for (var i = 0; i < eventsSliders.length; i++) {
-            eventsSliders[i].classList.remove("active");
-        }
-    }
+function draggingEvents(e){
+    if(!eventsDragStart) return;  // if the mouse is not dragging, then don't move the wrapper
+    e.preventDefault();
+    eventsWrapper.classList.add("dragging");
+    let posDiff = (e.pageX || e.touches[0].pageX) - prevEventsX;  // calculating how much the position changes
+    eventsWrapper.scrollLeft = prevEventsScroll - posDiff;  // scroll based on that amount
 }
+
+function dragEventsStop(){
+    eventsDragStart = false;
+    eventsWrapper.classList.remove("dragging");
+}
+
+// mouse events
+eventsWrapper.addEventListener("mousedown", dragEventsStart);
+eventsWrapper.addEventListener("mousemove", draggingEvents);
+eventsWrapper.addEventListener("mouseup", dragEventsStop);
+
+// touch events (mobile)
+eventsWrapper.addEventListener("touchstart", dragEventsStart);
+eventsWrapper.addEventListener("touchmove", draggingEvents);
+eventsWrapper.addEventListener("touchend", dragEventsStop);
 
 // Slide the wrapper to show the next items,
 // but also making sure not to go over
@@ -114,8 +125,7 @@ function changePosition(clickedSlider) {
     clickedSlider.classList.add("active");
 }
 
-// When the window is resized, we should update the number of clickable sliders
-// to fit the amount of content
+// When the window is resized, we should update how much the buttons slide
 var prevMenuWidth = menuContainer.clientWidth;
 var prevEventsWidth = eventsContainer.clientWidth;
 
@@ -124,33 +134,16 @@ const interval = setInterval(function() {
     menuContainer = document.querySelector(".menuContainer");
     var newMenuWidth = menuContainer.clientWidth;
     
-    if(newMenuWidth > prevMenuWidth || newMenuWidth < prevMenuWidth){
+    if(newMenuWidth != prevMenuWidth){
         prevMenuWidth = menuContainer.clientWidth;
-        // go through each slider and delete them
-        for(let i = 0; i < menuSliders.length; i++){
-            menuSliders[i].remove();
-        }
-
-        addSliders(menuCarousel, menuContainer.clientWidth, menuWrapWidth);
-        menuSliders = menuCarousel.querySelectorAll(".slider");
-        setupSliders(menuSliders);
+        
     }
 
     // getting the window's width to track when @media takes effect
     eventsContainer = document.querySelector(".eventsContainer");
     var newEventsWidth = eventsContainer.clientWidth;
     
-    if(newEventsWidth > prevEventsWidth || newEventsWidth < prevEventsWidth){
+    if(newEventsWidth != prevEventsWidth){
         prevEventsWidth = eventsContainer.clientWidth;
-        // go through each slider and delete them
-        for(let i = 0; i < eventsSliders.length; i++){
-            eventsSliders[i].remove();
-        }
-
-        addSliders(eventsCarousel, eventsContainer.clientWidth, eventsWrapWidth);
-        eventsSliders = eventsCarousel.querySelectorAll(".slider");
-        setupSliders(eventsSliders);
     }
 }, 100);    //run every 0.1 seconds
-
-// TODO: make the wrapper draggable, not just clickable
