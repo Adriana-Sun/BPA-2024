@@ -14,20 +14,22 @@ html {
 }
 
 body {
-    margin: 0 auto; /* this centers the body horizontally */
+    max-width: 1800px;
+    margin: auto; /* this centers the body horizontally */
     color: var(--mainText);
-    font: 18px "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
+    font: 1rem "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
 }
 
 .navBar{
     width: 100%;
+    max-width: 1800px;
     height: 60px;
     border-bottom: 3px solid var(--subAccent);
     background-color: var(--subBg);
     position: fixed;
     top: 0;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
 }
 
 .navBar a {
@@ -43,7 +45,6 @@ body {
 
 .navBar a:hover{
     background-color: var(--subAccent);
-    /*color: var(--subBg);*/
 }
 
 .navBar a.active{
@@ -53,6 +54,19 @@ body {
 
 h1 {
     text-align: center;
+}
+
+.navBar a:first-child{
+    background-image: url("images/icon.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    width: 54px;
+    margin: auto;
+}
+
+.navBar a:first-child:hover{
+    background-color: var(--subBg);
 }
 
 .logo{
@@ -86,10 +100,13 @@ h1 {
     padding-top: 25px;
     padding-left: 160px;
 }
+
+/* just need a top border, so this should be changed from
+    "border" shorthand to "border-top: 1px solid black;" */
 #box{
     margin: auto;
     background-color: white;
-    border: 1px solid #000000;
+    border-top: 1px solid #000000;
     width: 100%;
     height: 200px;
 }

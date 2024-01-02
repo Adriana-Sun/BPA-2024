@@ -2,6 +2,7 @@
 <html lang="en-US">
     <head>
         <title>Game Day Grill</title>
+        <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Linking the General CSS Sheet -->
         <link href="general.css" rel="stylesheet">
@@ -15,7 +16,7 @@
                 display: flex;
                 margin-top: 60px;
                 height: 40vh;
-                background-image: url("images/placeholder-header.jpeg");
+                background: linear-gradient( rgba(0, 0, 0, 0.315), rgba(136, 34, 34, 0.5) ), url("images/placeholder-header.jpeg");
                 background-size: cover;
                 background-position-y: 40vh;
                 text-align: center;
@@ -24,7 +25,7 @@
                     margin: auto;
                 }
                     .homeHeader h1{
-                        font: 80px "Bungee", sans-serif;
+                        font: 4rem "Bungee", sans-serif;
                         color: white;
                         text-shadow: 6px 6px var(--subAccent);
                         margin: 0;
@@ -43,14 +44,8 @@
                         color: white;
                     }
 
-            .menuCarousel{
-                width: 90%;
-                height: 500px;
-                margin: 2em auto;
-                text-align: center;
-            }
                 .menuHeader{
-                    font: bold 40px "Lexend", sans-serif;
+                    font: bold 3rem "Lexend", sans-serif;
                     width: 100%;
                     margin: 1em auto;
                     color: var(--subBg);
@@ -59,189 +54,326 @@
                 }
                 .menuContainer{
                     height: 500px;
-                    width: calc(3 * 370px);
+                    max-width: 90%;
                     margin: auto;
-                    overflow: hidden;
-                    transition: all .3s cubic-bezier(0, .67, .45, 1);
+                    position: relative;
                 }
+                    .menuContainer:hover{
+                            cursor: grab;
+                    }
+                    .menuContainer button{
+                        background-color: white;
+                        border: none;
+                        border-radius: 50%;
+                        box-shadow: 0px 0px 3px gray;
+                        position: absolute;
+                        height: 50px;
+                        width: 50px;
+                        font-size: 1.5rem;
+                        z-index: 1;
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                    .menuContainer button:hover{
+                        cursor: pointer;
+                    }
+                    .menuContainer button:first-child{
+                        left: -10px;
+                    }
+                    .menuContainer button:last-child{
+                        right: -10px;
+                    }
+
                     .menuWrapper{
-                        display: flex;
                         height: 100%;
-                        width: fit-content;
-                        align-items: center;
-                        transform: translate3d(0,0,0);
-                        transition: all 0.5s ease 0s;
+                        scroll-behavior: smooth;
+                        white-space: nowrap;
+                        overflow: hidden;
                     }
-                        
-                        .menuCarousel .slideItem{
-                            width: 350px;
-                            height: 465px;
+                    .menuWrapper.dragging{
+                        cursor: grabbing;
+                        scroll-behavior: auto;
+                    }
+                        .menuWrapper .slideItem{
+                            display: inline-block;
+                            width: calc(calc(100% - 45px) / 3);
+                            height: 95%;
                             margin-left: 10px;
+                            margin-top: 12.5px;
+                            vertical-align: middle;
+                        }
+                        .menuWrapper .slideItem:last-child{
                             margin-right: 10px;
-                            padding-bottom: 10px;
-                            box-shadow: 5px 5px 5px var(--mainBg);
-                            
                         }
-                            .menuCarousel .slideImg{
-                                object-fit: cover;
-                                width: 350px;
-                                height: 250px;
-                            }
-                            .slideText{
-                                font-size: 16px;
-                                width: 90%;
-                                margin: auto;
-                                text-align: left;
-                            }
-                            .slideText h1{
-                                font-size: 28px;
-                                color: var(--subAccent);
-                            }
-                @media (max-width: 1150px){
-                    .menuContainer{
-                        width: calc(2 * 370px);
-                    }
-                }
-
-                @media (max-width: 750px){
-                    .menuContainer{
-                        width: 370px;
-                    }
-                }
-
-            .eventsCarousel{
-                width: 90%;
-                margin: 2em auto;
-                text-align: center;
-            }
-                .eventsHeader{
-                    font: bold 40px "Lexend", sans-serif;
-                    width: 100%;
-                    margin: 2em 1em auto auto;
-                    color: var(--subBg);
-                    text-shadow: 1px 1px var(--subAccent);
-                    text-align: center;
-                }
-                .eventsContainer{
-                    height: 550px;
-                    width: calc(2 * 555px);
-                    margin: auto;
-                    overflow: hidden;
-                    transition: all .3s cubic-bezier(0, .67, .45, 1);
-                }
-                    .eventsWrapper{
-                        display: flex;
-                        height: 100%;
-                        width: fit-content;
-                        align-items: center;
-                        transform: translate3d(0,0,0);
-                        transition: all 0.5s ease 0s;
-                    }
-                        .eventsCarousel .slideItem{
-                            width: 525px;
-                            height: 500px;
-                            margin-left: 15px;
-                            margin-right: 15px;
-                            padding-bottom: 10px;
-                            box-shadow: 5px 5px 5px var(--mainBg);
-                        }
-                            .eventsCarousel .slideImg{
+                            .menuWrapper .slideImg{
                                 object-fit: cover;
                                 width: 100%;
-                                height: 300px;
+                                height: 250px;
+                                border-radius: 5px;
+                                box-shadow: 0px 0px 5px gray;
+                                /* box-shadow: 7px 7px 0 var(--subBg); */
                             }
-                @media (max-width: 1110px){
-                    .eventsContainer{
-                        width: 555px;
+                .slideText{
+                    white-space: normal;
+                    font-size: 1rem;
+                    width: 90%;
+                    margin: auto;
+                    text-align: left;
+                }
+                .slideText h1{
+                    display: block;
+                    font-size: 2rem;
+                    height: fit-content;
+                    color: var(--subAccent);
+                }
+                .slideText p{
+                    height: fit-content;
+                }
+                @media screen and (max-width: 1140px){
+                    .menuWrapper .slideItem{
+                        width: calc(calc(100% - 30px) / 2);
                     }
                 }
-            .slider{
-                border: none;
-                border-radius: 100%;
-                background-color: var(--mainText);
-                margin: 0 5px;
-                width: 20px;
-                height: 20px;
+
+                @media screen and (max-width: 950px){
+                    .menuWrapper .slideItem{
+                        width: calc(100% - 20px);
+                    }
+                }
+
+            .eventsHeader{
+                font: bold 3rem "Lexend", sans-serif;
+                width: 100%;
+                margin: 2em em;
+                color: var(--subBg);
+                text-shadow: 1px 1px var(--subAccent);
+                text-align: center;
             }
-            .slider:hover{
-                background-color: var(--subAccent);
-                cursor: pointer;
+            .eventsContainer{
+                height: 550px;
+                max-width: 90%;
+                margin: auto;
+                position: relative;
             }
-            .slider.active{
-                background-color: var(--subBg);
-            }
+                .eventsContainer:hover{
+                    cursor: grab;
+                }
+                .eventsContainer button{
+                    background-color: white;
+                    border: none;
+                    border-radius: 50%;
+                    box-shadow: 0px 0px 3px gray;
+                    position: absolute;
+                    height: 50px;
+                    width: 50px;
+                    font-size: 1.5rem;
+                    z-index: 1;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+                .eventsContainer button:hover{
+                    cursor: pointer;
+                }
+                .eventsContainer button:first-child{
+                    left: -10px;
+                }
+                .eventsContainer button:last-child{
+                    right: -10px;
+                }
+
+                .eventsWrapper{
+                    height: 100%;
+                    scroll-behavior: smooth;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+                    .eventsWrapper.dragging{
+                        cursor: grabbing;
+                        scroll-behavior: auto;
+                    }
+                    .eventsWrapper .slideItem{
+                        display: inline-block;
+                        width: calc(calc(100% - 45px) / 2);
+                        height: 95%;
+                        margin-top: 12.5px;
+                        margin-left: 15px;
+                        vertical-align: middle;
+                    }
+                        .eventsWrapper .slideItem:last-child{
+                            margin-right: 15px;
+                            text-align: center;
+                            border-radius: 5px;
+                            font-size: 1.5rem;
+                        }
+                        .eventsWrapper .slideItem:last-child p{
+                            margin-top: 50px;
+                        }
+                        .eventsWrapper .slideImg{
+                            object-fit: cover;
+                            width: 100%;
+                            height: 250px;
+                            border-radius: 5px;
+                            box-shadow: 0px 0px 5px gray;
+                        }
+                        .eventsWrapper a{
+                            background-color: var(--subBg);
+                            border-radius: 15px;
+                            width: 50%;
+                            height: 20%;
+                            color: white;
+                            display: inline-flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 10%;
+                            width: 50%;
+                            font: bold 18px "Lexend", sans-serif;
+                            color: white;
+                        }
+                        .eventsWrapper a:hover{
+                            cursor: pointer;
+                            background-color: var(--subAccent);
+                        }
+                @media (max-width: 1015px){
+                    .eventsWrapper .slideItem{
+                        width: calc(100% - 20px);
+                    }
+                }
         </style>
     </head>
 
     <body>
         <div class="navBar">
+            <a href="index.html"></a>
             <a class="active" href="index.html">Home</a>
-            <a href="#menu">Menu</a>
+            <a href="menu.html">Menu</a>
             <a href="#events">Events</a>
-            <a href="#contact">Reservations</a>
-            <a href="#about">About Us</a>
+            <a href="#reserve">Reservations</a>
+            <a href="#contact">Contact Us</a>
         </div>
 
         <div class="homeHeader">
             <div class="homeWrapper">
                 <h1>Game Day Grill</h1>
-                <a class="orderButton" href="#menu">Order now</a>
+                <a class="orderButton" href="menu.html">Order now</a>
             </div>
         </div>
         
         <h1 class="menuHeader">Featured Items</h1>
 
-        <div class="menuCarousel">
-            <div class="menuContainer">
-                <div class="menuWrapper">
-                    <div class="slideItem">
-                        <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
-                            of the image. The license requires it to be linked back. -->
-                        <img src="images/burger-fries.jpeg" class="slideImg" alt="Image of a double burger and fries in the background">
-                        <div class="slideText">
-                            <h1>Classic Double GameBurger</h1>
-                            <p>A classic layered with cheese, lettuce, mayo, and includes small fries!</p>
-                            <p>$13.99 </p>
-                        </div>
+        <div class="menuContainer">
+            <button class="arrowSlider" id="left">&lt;</button>
+            <div class="menuWrapper">
+                <div class="slideItem" draggable="false">
+                    <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
+                        of the image. The license requires it to be linked back. -->
+                    <img src="images/burger-fries.jpeg" class="slideImg" alt="Image of a double burger and fries in the background">
+                    <div class="slideText">
+                        <h1>Classic Double GameBurger</h1>
+                        <p>A classic layered with cheese, lettuce, mayo, and includes small fries!</p>
+                        <p>$13.99 </p>
                     </div>
-                    <div class="slideItem">
-                        <!-- Note: https://www.flickr.com/photos/ilove9and23/11497620976 is the source of the image. 
-                            Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
-                            Author: Debbie Tingzon 
-                            License: Creative Commons by 2.0-->
-                        <img src="images/rib-eyed-steak.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
-                        <div class="slideText">
-                            <h1>Grandma's Rib-Eye Steak</h1>
-                            <p>A 18 ounce steak so delicious even your grandma would approve! </p>
-                            <p>$19.99 </p>
-                        </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <!-- Note: https://www.flickr.com/photos/ilove9and23/11497620976 is the source of the image. 
+                        Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
+                        Author: Debbie Tingzon 
+                        License: Creative Commons by 2.0-->
+                    <img src="images/rib-eyed-steak.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
+                    <div class="slideText">
+                        <h1>Grandma's Rib-Eye Steak</h1>
+                        <p>A 18 ounce steak so delicious even your grandma would approve! </p>
+                        <p>$19.99 </p>
                     </div>
-                    <div class="slideItem">
-                        <img src="images/brownies.jpeg" class="slideImg" alt="Image of brownies with chocolate drizzle on top">
-                        <div class="slideText">
-                            <h1>Triple Chocolate Brownies</h1>
-                            <p>Fresh brownies with chocolate drizzle and ganache filling.</p>
-                            <p>$6.99 </p>
-                        </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <img src="images/brownies.jpeg" class="slideImg" alt="Image of brownies with chocolate drizzle on top">
+                    <div class="slideText">
+                        <h1>Triple Chocolate Brownies</h1>
+                        <p>Fresh brownies with chocolate drizzle and ganache filling.</p>
+                        <p>$6.99 </p>
                     </div>
-                    <div class="slideItem">
-                        <img src="images/burger-fries.jpeg" class="slideImg">
-                        <div class="slideText">
-                            <h1>Burger with fries 4</h1>
-                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                            <p>$6.99 </p>
-                        </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 4</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
                     </div>
-                    <div class="slideItem">
-                        <img src="images/burger-fries.jpeg" class="slideImg">
-                        <div class="slideText">
-                            <h1>Burger with fries 5</h1>
-                            <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                            <p>$6.99 </p>
-                        </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Burger with fries 5</h1>
+                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
+                        <p>$6.99 </p>
                     </div>
                 </div>
             </div>
+            <button class="arrowSlider" id="right">&gt;</button>
+        </div>
+
+        <h1 class="eventsHeader">Special Events</h1>
+
+        <div class="eventsContainer">
+            <button class="arrowSlider" id="left">&lt;</button>
+            <div class="eventsWrapper">
+                <div class="slideItem" draggable="false">
+                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>New Year's Gift Card</h1>
+                        <p>To celebrate the entrance of 2024, we're giving a $10 gift card whenever you place an order of $50 or more. So what are you waiting for? Get grilling!</p>
+                    </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <img src="images/brownies.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Watch The Latest Sports Games</h1>
+                        <p>Here at Game Day Grill, we have the latest matches from all your favorite teams at the ready. Grab a drink, a couple of friends, sit back and enjoy our widescreen TVs!</p>
+                    </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <img src="images/rib-eyed-steak.jpeg" class="slideImg">
+                    <div class="slideText">
+                        <h1>Play Games With Your Friends and Family</h1>
+                        <p>Want something else to do during off-season? We offer a variety of games, tables, and places to have fun while you eat! Every day is a Game Day.</p>
+                    </div>
+                </div>
+                <div class="slideItem" draggable="false">
+                    <p>Still interested?</p>
+                    <a tabindex="1">Learn More</a>
+                </div>
+            </div>
+            <button class="arrowSlider" id="right">&gt;</button>
+        </div>
+
+        <div id="box">
+            <a href="index.html">
+                <img class="logo" src="https://th.bing.com/th/id/OIP.zISRSOrQF36FlkP0kYMCiwHaHa?rs=1&pid=ImgDetMain">
+            </a>
+            <a class="bar-info" href = "#contact">CONTACT US</a>
+            <a class="bar-info" href = "#employment">EMPLOYMENT</a>
+            <a class="bar-info" href = "#franchising">FRANCHISING</a>
+            <a class="bar-info" href = "#nutrition">NUTRITION INFORMATION</a>
+            <a class="bar-info" href = "#story">OUR STORY</a>
+            <a class="bar-info" href = "#identity">WHO WE ARE</a>
+            <a class="lower-info" href = "#copyright">@ 2023 BRINKER INTERNATIONAL ALL RIGHTS RESERVED</a>
+            <a class="lower-info" href = "#terms">TERMS & CONDITIONS</a>
+            <a class="lower-info" href = "#map">SITE MAP</a>
+            <a class="lower-info" href = "#web">WEB ACCESSIBILITY</a>
+            <a class="lower-info" href = "#privacy">PRIVACY POLICY</a>
+            <a href="index.html">
+                <img class="button" src="https://pluspng.com/img-png/download-on-app-store-png-how-to-download-the-app-1945.png" width="100" height="75">
+            </a>
+            <a href="index.html">
+                <img class="button" src="https://th.bing.com/th/id/OIP.YbA4ryLXGwofx2VAulyCvQHaEx?rs=1&pid=ImgDetMain" width="100" height="100">
+            </a>
+            <a href="https://www.facebook.com/">
+                <img class="button" src="https://www.pngkit.com/png/full/213-2133094_like-us-on-facebook-logo-high-resolution.png" width="100" height="75">
+            </a>
+            <a href="https://twitter.com/">
+                <img class="button" src="https://logodix.com/logo/654074.png" width="100" height="75">
+            </a>
         </div>
     </body>
 
