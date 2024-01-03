@@ -48,7 +48,7 @@
                 width: 97%;
                 height: 30px;
                 border-radius: 5px;
-                font-size: 1.2rem;
+                font: 1rem "Lexend", sans-serif;
                 padding-left: 2%;
             }
             input[type="submit"]{
@@ -64,6 +64,7 @@
             }
             input[type="submit"]:hover{
                 cursor: pointer;
+                background-color: var(--subAccent);
             }
             input [type="date"]::-webkit-calendar-picker-indicator {
                 opacity: 0;
@@ -85,7 +86,10 @@
                     font-size: 1rem;
                 }
                 .inputForm{
-                    grid-template-columns: none;
+                    grid-template-columns: 1fr;
+                }
+                input[type="submit"]{
+                    grid-column: 1 / 2;
                 }
             }
 
@@ -109,18 +113,18 @@
         <h1 class="pageHeader">RESERVATIONS</h1>
         <p style="font-size: 1.3rem; width: 90%; margin: auto; text-align: center;">Want to make a reservation? Fill out the form below and you'll be set!</p>
 
-        <div class="inputForm">
+        <form class="inputForm">
             <div>
                 <label for="fName">First name</label><br>
-                <input type="text" name="fName" id="fName">
+                <input type="text" name="fName" id="fName" placeholder="First name">
             </div>
             <div>
                 <label for="lName">Last name</label><br>
-                <input type="text" name="lName" id="lName">
+                <input type="text" name="lName" id="lName" placeholder="Last name">
             </div>
             <div>
                 <label for="numPeople">Number of People</label><br>
-                <input type="number" name="numPeople" id="numPeople">
+                <input type="number" name="numPeople" id="numPeople" placeholder="Ex: 2">
             </div>
             <div>
                 <label for="date">Date</label><br>
@@ -128,21 +132,21 @@
             </div>
             <div>
                 <label for="phoneNmb">Phone Number</label><br>
-                <input type="text" name="phoneNmb" id="phoneNmb">
+                <input type="text" name="phoneNmb" id="phoneNmb" placeholder="Ex: 123-456-7891">
             </div>
             <div>
                 <label for="email">Email</label><br>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" placeholder="example@gmail.com">
             </div>
             <div>
                 <label for="time">Time</label><br>
-                <input type="time" name="time" id="time">
+                <input type="time" name="time" id="time" placeholder="First name">
             </div>
             <div>
                 <label for="notes">Notes</label><br>
-                <input type="notes" name="notes" id="notes">
+                <input type="notes" name="notes" id="notes" placeholder="Ex: Jill has a peanut allergy.">
             </div>
             <input type="submit" value="Submit Reservation">
-        </div>
+        </form>
     </body>
 </html>
