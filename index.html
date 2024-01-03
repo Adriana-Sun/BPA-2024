@@ -5,7 +5,7 @@
         <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Linking the General CSS Sheet -->
-        <link href="general.css" rel="stylesheet">
+        <link href="general.css" rel="stylesheet">   <!-- Setting favicon -->
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -43,6 +43,11 @@
                         font: bold 18px "Lexend", sans-serif;
                         color: white;
                         margin-top: 50px;
+                        transition: all 0.2s ease-out;
+                    }
+                    .homeWrapper a:hover{
+                        background-color: var(--subAccent);
+                        border-color: var(--subAccent);
                     }
 
                 .menuHeader{
@@ -231,6 +236,7 @@
                             color: white;
                         }
                         .eventsWrapper a:hover{
+                            transition: all 0.2s ease-out;
                             cursor: pointer;
                             background-color: var(--subAccent);
                         }
@@ -243,13 +249,14 @@
     </head>
 
     <body>
-        <div class="navBar">
+        <nav class="navBar">
             <a href="index.html"><span>Game Day Grill</span></a>
             <a href="menu.html">Menu</a>
             <a href="#events">Events</a>
             <a href="reservations.html">Reservations</a>
             <a href="about-us.html">About Us</a>
-        </div>
+            <a href="cart.html"></a>
+        </nav>
 
         <div class="homeHeader">
             <div class="homeWrapper">
