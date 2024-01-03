@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Game Day Grill</title>
+        <link rel="icon" type="image/png" href="images/icon.PNG">   <!-- Setting favicon -->
+
+        <!-- Importing CSS file -->
+        <link href="general.css" rel="stylesheet">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
+        <style>
+             .pageHeader{
+                margin-top: 160px;
+                margin-bottom: 120px;
+                text-align: center;
+                font: 4rem "Bungee", sans-serif;
+                color: var(--subBg);
+                text-shadow: 3px 3px 0 var(--subAccent);
+            }
+
+            .cartItems{
+                width: 90%;
+                margin: auto;
+                display: grid;
+                grid-template-columns: 3fr 1fr 1fr 1fr;
+            }
+
+            .cartItems h1{
+                margin: auto;
+            }
+
+            .cartItems .price{
+                margin: auto;
+            }
+
+            .cartItems .remove{
+                margin: auto;
+                width: 50%;
+                height: 2rem;
+                background-color: var(--darkAccent);
+                color: white;
+                font: 1rem "Lexend", sans-serif;
+                border: none;
+                border-radius: 10px;
+                transition: all 0.2s ease-out;
+            }
+                .cartItems .remove:hover{
+                    background-color: var(--subAccent);
+                    cursor: pointer;
+                }
+
+            input[type="number"]{
+                margin: auto;
+                height: 1.4rem;
+                width: 50px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navBar">
+            <a href="index.html"><span>Game Day Grill</span></a>
+            <a href="menu.html">Menu</a>
+            <a href="#events">Events</a>
+            <a href="reservations.html">Reservations</a>
+            <a href="#contact">Contact Us</a>
+            <a href="cart.html"></a>
+        </nav>
+
+        <h1 class="pageHeader">Cart</h1>
+        <section class="cartItems">
+            <h1>Item</h1>   <h1>Quantity</h1>   <h1>Price</h1> <h1></h1>
+            <p>*insert image* Name</p>  <input type="number"> <p class="price">$4.99</p> <button class="remove">Remove</button>
+        </section>
+    </body>
+</html>
