@@ -15,10 +15,10 @@
             .homeHeader{
                 display: flex;
                 margin-top: 60px;
-                height: 40vh;
-                background: linear-gradient( rgba(0, 0, 0, 0.315), rgba(136, 34, 34, 0.5) ), url("images/placeholder-header.jpeg");
+                height: 60vh;
+                background: linear-gradient( rgba(0, 0, 0, 0.368), rgba(91, 0, 0, 0.522) ), url("images/placeholder-header.jpeg");
                 background-size: cover;
-                background-position-y: 40vh;
+                background-position-y: 60vh;
                 text-align: center;
             }
                 .homeWrapper{
@@ -34,14 +34,15 @@
                         display: inline-flex;
                         justify-content: center;
                         align-items: center;
-                        background-color: var(--subBg);
-                        border: 2px solid var(--subAccent);
+                        background-color: var(--darkAccent);
+                        border: 2px solid var(--darkAccent);
                         border-radius: 10px;
-                        height: 8vh;
+                        height: 50px;
                         width: 150px;
-                        text-shadow: 1px 1px 1px var(--mainText);
+                        text-shadow: 1px 1px 1px var(--darkAccent);
                         font: bold 18px "Lexend", sans-serif;
                         color: white;
+                        margin-top: 50px;
                     }
 
                 .menuHeader{
@@ -216,7 +217,7 @@
                             box-shadow: 0px 0px 5px gray;
                         }
                         .eventsWrapper a{
-                            background-color: var(--subBg);
+                            background-color: var(--darkAccent);
                             border-radius: 15px;
                             width: 50%;
                             height: 20%;
@@ -243,11 +244,10 @@
 
     <body>
         <div class="navBar">
-            <a href="index.html"></a>
-            <a class="active" href="index.html">Home</a>
+            <a href="index.html"><span>Game Day Grill</span></a>
             <a href="menu.html">Menu</a>
             <a href="#events">Events</a>
-            <a href="#reserve">Reservations</a>
+            <a href="reservations.html">Reservations</a>
             <a href="#contact">Contact Us</a>
         </div>
 
@@ -341,7 +341,7 @@
                 </div>
                 <div class="slideItem" draggable="false">
                     <p>Still interested?</p>
-                    <a tabindex="1">Learn More</a>
+                    <a href="#events"tabindex="1">Learn More</a>
                 </div>
             </div>
             <button class="arrowSlider" id="right">&gt;</button>

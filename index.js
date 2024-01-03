@@ -110,40 +110,10 @@ eventsWrapper.addEventListener("touchstart", dragEventsStart);
 eventsWrapper.addEventListener("touchmove", draggingEvents);
 eventsWrapper.addEventListener("touchend", dragEventsStop);
 
-// Slide the wrapper to show the next items,
-// but also making sure not to go over
-// as well as setting the right slider to "active"
-function changePosition(clickedSlider) {
-    var slideVal = clickedSlider.getAttribute("data-slideAmt");
-
-    var translateValue = "translate3d(" + slideVal + ", 0px, 0)";
-    if(clickedSlider.parentNode.className === "menuCarousel")
-        menuWrapper.style.transform = translateValue;
-    else
-        eventsWrapper.style.transform = translateValue;
-
-    clickedSlider.classList.add("active");
-}
-
 // When the window is resized, we should update how much the buttons slide
-var prevMenuWidth = menuContainer.clientWidth;
-var prevEventsWidth = eventsContainer.clientWidth;
+// var prevMenuWidth = menuContainer.clientWidth;
+// var prevEventsWidth = eventsContainer.clientWidth;
 
-const interval = setInterval(function() {
-    // getting the window's width to track when @media takes effect
-    menuContainer = document.querySelector(".menuContainer");
-    var newMenuWidth = menuContainer.clientWidth;
-    
-    if(newMenuWidth != prevMenuWidth){
-        prevMenuWidth = menuContainer.clientWidth;
-        
-    }
+// const interval = setInterval(function() {
 
-    // getting the window's width to track when @media takes effect
-    eventsContainer = document.querySelector(".eventsContainer");
-    var newEventsWidth = eventsContainer.clientWidth;
-    
-    if(newEventsWidth != prevEventsWidth){
-        prevEventsWidth = eventsContainer.clientWidth;
-    }
-}, 100);    //run every 0.1 seconds
+// }, 100);    //run every 0.1 seconds
