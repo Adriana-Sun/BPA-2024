@@ -64,7 +64,8 @@ body {
 
 .navBar a:first-child{
     background-image: url("images/icon.PNG");
-    background-size: contain;
+    background-size: 20%;
+    background-position: 2.5%;
     background-repeat: no-repeat;
     padding-left: 60px;
     font-family: "Bungee", sans-serif;
