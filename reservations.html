@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Game Day Grill</title>
+        <link rel="icon" type="image/png" href="images/icon.PNG">
+
+        <!-- Importing CSS file -->
+        <link href="general.css" rel="stylesheet">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
+
+        <!-- Page-Specific CSS -->
+        <style>
+            .pageHeader{
+                margin-top: 160px;
+                margin-bottom: 120px;
+                text-align: center;
+                font: 4rem "Bungee", sans-serif;
+                color: var(--subBg);
+                text-shadow: 3px 3px 0 var(--subAccent);
+            }
+
+            .inputForm{
+                width: 80%;
+                margin: auto;
+                margin-top: 50px;
+                margin-bottom: 50px;
+                padding: 2%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+                border: 3px solid var(--darkAccent);
+                border-radius: 10px;
+                box-shadow: 10px 10px 0px var(--subBg);
+            }
+
+            .inputForm > div{
+                /* margin: 0px 5% 0px 5%; */
+                line-height: 2rem;
+            }
+
+            label{
+                font-size: 1.2rem;
+            }
+            input{
+                border: 2px solid black;
+                width: 97%;
+                height: 30px;
+                border-radius: 5px;
+                font-size: 1.2rem;
+                padding-left: 2%;
+            }
+            input[type="submit"]{
+                width: 200px;
+                height: 40px;
+                margin: auto;
+                margin-bottom: 20px;
+                padding-left: 6px;
+                background-color: var(--darkAccent);
+                color: white;
+                border: none;
+                grid-column: 1 / 3;
+            }
+            input[type="submit"]:hover{
+                cursor: pointer;
+            }
+            input [type="date"]::-webkit-calendar-picker-indicator {
+                opacity: 0;
+            }
+
+            input:focus{
+                outline: none;
+                border: 2px solid var(--darkAccent);
+            }
+
+            @media screen and (max-width: 700px){
+                .pageHeader{
+                    font-size: 3rem;
+                }
+            }
+
+            @media screen and (max-width: 500px){
+                label{
+                    font-size: 1rem;
+                }
+                .inputForm{
+                    grid-template-columns: none;
+                }
+            }
+
+            @media screen and (max-width: 400px) {
+                .pageHeader{
+                    font-size: 2.5rem;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navBar">
+            <a href="index.html"><span>Game Day Grill</span></a>
+            <a href="menu.html">Menu</a>
+            <a href="#events">Events</a>
+            <a class="active" href="reservations.html">Reservations</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+        <h1 class="pageHeader">RESERVATIONS</h1>
+        <p style="font-size: 1.3rem; width: 90%; margin: auto; text-align: center;">Want to make a reservation? Fill out the form below and you'll be set!</p>
+
+        <div class="inputForm">
+            <div>
+                <label for="fName">First name</label><br>
+                <input type="text" name="fName" id="fName">
+            </div>
+            <div>
+                <label for="lName">Last name</label><br>
+                <input type="text" name="lName" id="lName">
+            </div>
+            <div>
+                <label for="numPeople">Number of People</label><br>
+                <input type="number" name="numPeople" id="numPeople">
+            </div>
+            <div>
+                <label for="date">Date</label><br>
+                <input type="date" name="date" id="date">
+            </div>
+            <div>
+                <label for="phoneNmb">Phone Number</label><br>
+                <input type="text" name="phoneNmb" id="phoneNmb">
+            </div>
+            <div>
+                <label for="email">Email</label><br>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label for="time">Time</label><br>
+                <input type="time" name="time" id="time">
+            </div>
+            <div>
+                <label for="notes">Notes</label><br>
+                <input type="notes" name="notes" id="notes">
+            </div>
+            <input type="submit" value="Submit Reservation">
+        </div>
+    </body>
+</html>

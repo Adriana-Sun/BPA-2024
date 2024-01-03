@@ -9,47 +9,88 @@ html {
     --mainBg: #DADCE7;
     --subBg: #fd9c19;
     --mainText: #010C13;
-    --accent: #fff94d;
+    --accent: #e8d449;
     --subAccent: #c95a00;
+    --darkAccent: #b32c10;
 }
 
 body {
-    margin: 0 auto; /* this centers the body horizontally */
+    max-width: 1800px;
+    margin: auto; /* this centers the body horizontally */
     color: var(--mainText);
-    font: 18px "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
+    font: 1rem "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
 }
 
 .navBar{
     width: 100%;
-    height: 8vh;
-    border-bottom: 3px solid var(--subAccent);
-    background-color: var(--subBg);
+    max-width: 1800px;
+    height: 60px;
+    border-bottom: 3px solid var(--subBg);
+    background-color: var(--darkAccent);
     position: fixed;
     top: 0;
     overflow: hidden;
-    z-index: 1;
+    z-index: 2;
 }
 
 .navBar a {
     color: white;
-    line-height: 8vh;
+    line-height: 60px;
     text-align: center;
     font-size: 20px;
     padding: 0px 12px;
     text-decoration: none;
-    height: 8vh;
+    height: 60px;
     float: left;
 }
 
 .navBar a:hover{
     background-color: var(--subAccent);
-    /*color: var(--subBg);*/
+}
+
+.navBar a:focus{
+    outline: none;
+    background-color: var(--subAccent);
 }
 
 .navBar a.active{
-    background-color: white;
+    background-color: var(--subBg);
     color: var(--mainText);
 }
+
+.navBar a.active:focus{
+    background-color: var(--subAccent);
+}
+
+.navBar a:first-child{
+    background-image: url("images/icon.PNG");
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-left: 60px;
+    font-family: "Bungee", sans-serif;
+    color: black;
+    margin: auto;
+}
+
+.navBar a:first-child span{
+    background-color: var(--mainText);
+    background-image: linear-gradient(
+            45deg,
+            var(--mainText) 25%, 
+            var(--subAccent) 25%, 
+            var(--subAccent) 50%, 
+            var(--subBg) 50%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
+.navBar a:first-child:hover{
+    background-color: var(--darkAccent);
+    
+}
+
 .logo{
     width: 125px;
     
@@ -80,6 +121,9 @@ body {
     padding-left: 50px;
     
 }
+
+/* just need a top border, so this should be changed from
+    "border" shorthand to "border-top: 1px solid black;" */
 #box{
     margin: auto;
     background-color: white;
