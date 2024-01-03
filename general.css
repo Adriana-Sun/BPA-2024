@@ -9,8 +9,9 @@ html {
     --mainBg: #DADCE7;
     --subBg: #fd9c19;
     --mainText: #010C13;
-    --accent: #fff94d;
+    --accent: #e8d449;
     --subAccent: #c95a00;
+    --darkAccent: #b32c10;
 }
 
 body {
@@ -24,8 +25,8 @@ body {
     width: 100%;
     max-width: 1800px;
     height: 60px;
-    border-bottom: 3px solid var(--subAccent);
-    background-color: var(--subBg);
+    border-bottom: 3px solid var(--subBg);
+    background-color: var(--darkAccent);
     position: fixed;
     top: 0;
     overflow: hidden;
@@ -47,26 +48,47 @@ body {
     background-color: var(--subAccent);
 }
 
-.navBar a.active{
+.navBar a:focus{
+    outline: none;
     background-color: var(--subAccent);
-    color: var(--subBg);
 }
 
-h1 {
-    text-align: center;
+.navBar a.active{
+    background-color: var(--subBg);
+    color: var(--mainText);
+}
+
+.navBar a.active:focus{
+    background-color: var(--subAccent);
 }
 
 .navBar a:first-child{
     background-image: url("images/icon.PNG");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: 50%;
-    width: 54px;
+    padding-left: 60px;
+    font-family: "Bungee", sans-serif;
+    color: black;
     margin: auto;
 }
 
+.navBar a:first-child span{
+    background-color: var(--mainText);
+    background-image: linear-gradient(
+            45deg,
+            var(--mainText) 25%, 
+            var(--subAccent) 25%, 
+            var(--subAccent) 50%, 
+            var(--subBg) 50%);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+
 .navBar a:first-child:hover{
-    background-color: var(--subBg);
+    background-color: var(--darkAccent);
+    
 }
 
 .logo{
