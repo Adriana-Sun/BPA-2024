@@ -22,21 +22,32 @@
             .cartItems{
                 width: 90%;
                 margin: auto;
+                margin-bottom: 50px;
+            }
+
+            .item{
                 display: grid;
-                grid-template-columns: 3fr 1fr 1fr 1fr;
+                grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+                margin-top: 40px;
             }
 
-            .cartItems h1{
+            .item h1, .item p{
                 margin: auto;
             }
 
-            .cartItems .price{
-                margin: auto;
+            .item img{
+                width: 200px;
+                border-radius: 10px;
+                box-shadow: 10px 10px 0px var(--subBg);
+            }
+            
+            .item .name{
+                margin-left: 40px;
             }
 
-            .cartItems .remove{
+            .item button{
                 margin: auto;
-                width: 50%;
+                width: 100px;
                 height: 2rem;
                 background-color: var(--darkAccent);
                 color: white;
@@ -45,13 +56,19 @@
                 border-radius: 10px;
                 transition: all 0.2s ease-out;
             }
-                .cartItems .remove:hover{
+                .item button:hover{
                     background-color: var(--subAccent);
                     cursor: pointer;
                 }
 
-            input[type="number"]{
+            .subtotal{
                 margin: auto;
+                display: grid;
+                background-color: var(--subBg);
+                height: 6rem;
+                grid-template-columns: 3fr 2fr 1fr;
+            }
+            input[type="number"]{
                 height: 1.4rem;
                 width: 50px;
             }
@@ -70,8 +87,13 @@
 
         <h1 class="pageHeader">Cart</h1>
         <section class="cartItems">
-            <h1>Item</h1>   <h1>Quantity</h1>   <h1>Price</h1> <h1></h1>
-            <p>*insert image* Name</p>  <input type="number"> <p class="price">$4.99</p> <button class="remove">Remove</button>
         </section>
+        <div class="subtotal">
+            <p></p> <p style="font-size: 2rem; margin: auto;">SUBTOTAL: $<span id="subtotal">0.00</span></p>
+        </div>
+
+        
     </body>
+
+    <script src="cart.js"></script>
 </html>
