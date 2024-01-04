@@ -91,8 +91,9 @@ body {
 }
 
 .navBar a:first-child span:hover{
-    animation: move-text-bg 0.5s ease-in forwards;
+        animation: move-text-bg 0.5s ease-in forwards;
 }
+
 @keyframes move-text-bg {
     0% {
         background-size: 100%;

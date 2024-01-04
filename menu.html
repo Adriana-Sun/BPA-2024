@@ -23,6 +23,7 @@
                 border-radius: 10px;
                 opacity: 0;
                 transition: opacity 0.6s; /* 600ms to fade */
+                text-align: center;
             }
 
             .closebtn {
@@ -97,9 +98,14 @@
                         border-radius: 15px;
                         transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
                     }
-                    .menuItem button:hover{
+                    .menuItem button:hover, .menuItem button:focus{
                         background-color: var(--subAccent);
                         cursor: pointer;
+                    }
+                    .menuItem button:focus{
+                        border: 5px solid var(--subBg);
+                        border-radius: 15px;
+                        outline: none;
                     }
 
             @media (max-width: 1050px){
@@ -125,7 +131,7 @@
         <nav class="navBar">
             <a href="index.html"><span>Game Day Grill</span></a>
             <a class="active" href="menu.html">Menu</a>
-            <a href="#events">Events</a>
+            <a href="events.html">Events</a>
             <a href="reservations.html">Reservations</a>
             <a href="#contact">Contact Us</a>
             <a href="cart.html"></a>
