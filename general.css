@@ -43,7 +43,7 @@ body {
     height: 60px;
     float: left;
     background-color: var(--darkAccent);
-    transition: all 0.2s ease-out;  /* to make the links fade in and out when hovered */
+    transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
 }
 
 .navBar a:hover{
@@ -87,11 +87,31 @@ body {
     background-repeat: repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
+    animation: move-text-bg-reverse 0.5s ease forwards;
 }
 
+.navBar a:first-child span:hover{
+    animation: move-text-bg 0.5s ease-in forwards;
+}
+@keyframes move-text-bg {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
+
+@keyframes move-text-bg-reverse {
+    0% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
 .navBar a:first-child:hover, a:last-child:hover{
     background-color: var(--darkAccent);
-
 }
 
 .navBar a:last-child{
