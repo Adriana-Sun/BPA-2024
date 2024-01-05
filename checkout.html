@@ -11,66 +11,145 @@
         <meta name="viewport" content="width=device-width" />
 
         <style>
-            .pageHeader{
-                margin-top: 160px;
-                margin-bottom: 120px;
+
+            #alert{
+                position: fixed;
+
+                display: flex;
+                
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+
+                transform: translateY(-60px);
+                width: 100%;
+                height: 100vh;
+                background-color: white;
                 text-align: center;
-                font: 4rem "Bungee", sans-serif;
-                color: var(--subBg);
-                text-shadow: 3px 3px 0 var(--subAccent);
+                z-index: 1;
+
+                font: bold 2rem "Lexend", sans-serif;
+                visibility: hidden;
+                opacity: 0;
+                transition: visibility 0s, opacity 0.3s;
             }
+                #alert a{
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 40%;
+                    height: 50px;
+                    background-color: var(--darkAccent);
+                    border: none;
+                    border-radius: 10px;
+                    transition: all 0.2s ease-in;
+                    font: 1.2rem "Lexend", sans-serif;
+                    color: white;
+                    transition: all 0.2s ease-in;
+                }
+                    #alert a:hover, #alert a:focus{
+                        cursor: pointer;
+                        background-color: var(--subAccent);
+                    }
+                    
 
             .checkout{
-                width: 80%;
-                height: 500px;
+                width: 90%;
+                height: 550px;
                 box-shadow: 10px 10px 0px var(--subAccent), 0px 0px 10px var(--mainBg);
                 border-radius: 10px;
                 overflow: hidden;
                 margin: auto;
+                margin-top: 100px;
+                padding: 2%;
                 display: grid;
-                grid-template-columns: 3fr 1fr;
+                grid-template-columns: 2fr 1fr;
             }
 
-            .checkout div{
-                margin: auto;
-                width: 90%;
-            }
-            .checkout input{
-                width: 100%;
-            }
-            .checkout input[type='submit']{
-                width: 50%;
-                height: 40px;
-                margin: auto;
-                background-color: var(--darkAccent);
-                border: none;
-                border-radius: 10px;
-                color: white;
-                font: bold 1.2rem "Lexend", sans-serif;
-                transition: all 0.2s ease-in;
-            }
-                .checkout input[type='submit']:hover{
-                    cursor: pointer;
-                    background-color: var(--subAccent);
+                .checkout div{
+                    margin: auto;
+                    margin-top: 5%;
+                    width: 80%;
                 }
+                .checkout label{
+                    font-size: 1.2rem;
+                }
+                .checkout input{
+                    margin-top: 10px;
+                    width: 100%;
+                    height: 2rem;
+                    padding-left: 2%;
+                    border: 2px solid black;
+                    border-radius: 5px;
+                    font: 1rem "Lexend", sans-serif;
+                }
+                .checkout input[type='submit']{
+                    width: 50%;
+                    height: 40px;
+                    margin: auto;
+                    margin-bottom: 30px;
+                    background-color: var(--darkAccent);
+                    border: none;
+                    border-radius: 10px;
+                    color: white;
+                    font: bold 1.2rem "Lexend", sans-serif;
+                    transition: all 0.2s ease-in;
+                }
+                    .checkout input[type='submit']:hover{
+                        cursor: pointer;
+                        background-color: var(--subAccent);
+                    }
 
-            .checkout .receipt, .checkout .subtotal{
-                width: 100%;
-                height: 100%;
-                grid-column: 2 / 3;
+                .checkout .receipt, .checkout .subtotal{
+                    width: 100%;
+                    height: 100%;
+                    grid-column: 2 / 3;
+                }
+                .checkout .receipt{
+                    margin-top: 0;
+                    grid-row: 1 / 4;
+                    overflow: scroll;
+                }
+                    .checkout .item{
+                        width: 90%;
+                        border-radius: 5px;
+                        color: white;
+                        /* box-shadow: 5px 5px 0px var(--subBg); */
+                        background-repeat: no-repeat;
+                        text-align: right;
+                        padding: 2%;
+                    }
+                    .checkout .name{
+                        font: bold 1.2rem "Lexend", sans-serif;
+                        color: var(--subBg);
+                    }
+                .checkout .subtotal{
+                    position: relative;
+                    text-align: center;
+                    grid-row: 4 / 4;
+                }
+                    .subtotal p{
+                        margin: auto;
+                    }
+
+            input[type="submit"].invalidSubmitAnimation{
+                animation: invalid-submit-shake 0.2s;
             }
-            .checkout .receipt{
-                background-color: var(--mainBg);
-                grid-row: 1 / 4;
-            }
-            .checkout .subtotal{
-                background-color: var(--subBg);
-                text-align: center;
-                grid-row: 4 / 4;
-            }
-            
-            .subtotal p{
-                margin: auto;
+
+            @keyframes invalid-submit-shake{
+                0% {
+                    transform: translate(0px, -3px);
+                }
+                40% {
+                    transform: translate(1px, 3px);
+                }
+                70% {
+                    transform: translate(0px, -2px);
+                }
+                100% {
+                    transform: translate(5px, 2px);
+                }
             }
         </style>
     </head>
@@ -85,27 +164,36 @@
             <a href="cart.html"></a>
         </nav>
 
-        <h1 class="pageHeader">Checkout</h1>
-        <form class="checkout">
-            <div>
+        <div id="alert">
+            Thank you for your purchase.
+            <a href="menu.html">Return to menu &raquo;</a>
+        </div>
+
+        <!-- onsubmit makes it so that the page doesn't refresh when the submit button is pressed -->
+        <form class="checkout" onsubmit="return false;">
+            <div class="inputDetails">
                 <label for="name">Cardholder Name</label><br>
                 <input type="text" name="name" id="name" placeholder="Enter name" required aria-required="true">
             </div>
-            <div>
+            <div class="inputDetails">
                 <label for="cardNum">Credit Card Number</label><br>
                 <input type="number" name="cardNum" id="cardNum" placeholder="Enter credit card number" required aria-required="true">
             </div>
-            <div>
+            <div class="inputDetails">
                 <label for="securityNum">Security Number</label><br>
                 <input type="number" name="securityNum" id="securityNum" placeholder="Enter security number" required aria-required="true">
             </div>
-            <input type="submit" value="Complete Order">
+
+            <input type="submit" value="Complete Order" >
+
             <div class="receipt">
-                Cart:<br>
+                <p style="margin-left: 5%; font: bold 1.2rem 'Lexend', sans-serif; color: var(--darkAccent);">Cart:</p>
             </div>
             <div class="subtotal">
-                <p>Subtotal: $<span>0.00</span></p>
+                <p style="font: bold 1.2rem 'Lexend', sans-serif; color: var(--darkAccent);">Subtotal: $<span id="subtotal">0.00</span></p>
             </div>
         </form>
     </body>
+
+    <script src="checkout.js"></script>
 </html>

@@ -50,7 +50,14 @@
                 text-shadow: 3px 3px 0 var(--darkAccent);
             }
 
-            .wrapper{
+            h1{
+                width: 90%;
+                margin: auto;
+                margin-bottom: 50px;
+                font-family: "Bungee", sans-serif;
+            }
+
+            .appetizers{
                 width: 90%;
                 margin: auto;
                 display: grid;
@@ -109,19 +116,19 @@
                     }
 
             @media (max-width: 1050px){
-                .wrapper{
+                .appetizers{
                     grid-template-columns: repeat(3, 1fr);
                 }
             }
 
             @media (max-width: 900px){
-                .wrapper{
+                .appetizers{
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
 
             @media (max-width: 600px){
-                .wrapper{
+                .appetizers{
                     grid-template-columns: 1fr;
                 }
             }
@@ -144,7 +151,8 @@
 
         <h1 class="pageHeader">MENU</h1>
 
-        <div class="wrapper">
+        <h1>Appetizers</h1>
+        <div class="appetizers">
             <div class="menuItem">
                 <img src="images/brownies.jpeg" alt="Brownies">
                 <h1>Triple Chocolate Brownies</h1>

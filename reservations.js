@@ -34,7 +34,7 @@ submitButtons.forEach(button => {
         }
 
         alertElement.style.opacity = '1';
-        setInterval(() => alertElement.style.opacity = '0', 3500);
+        setInterval(() => alertElement.style.opacity = '0', 4000);
     });
 });
 
