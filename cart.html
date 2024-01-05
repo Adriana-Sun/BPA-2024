@@ -28,6 +28,7 @@
             .item{
                 display: grid;
                 grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+                gap: 15px;
                 margin-top: 40px;
             }
 
@@ -43,8 +44,14 @@
             
             .item .name{
                 margin-left: 40px;
+                font: bold 1.2rem "Lexend", sans-serif;
+                color: var(--darkAccent);
             }
 
+            input[type="number"]{
+                height: 1.4rem;
+                width: 50px;
+            }
             .item button{
                 margin: auto;
                 width: 100px;
@@ -60,17 +67,83 @@
                     background-color: var(--subAccent);
                     cursor: pointer;
                 }
-
+            
             .subtotal{
-                margin: auto;
+                font-size: 2rem;
                 display: grid;
                 background-color: var(--subBg);
                 height: 6rem;
                 grid-template-columns: 3fr 2fr 1fr;
             }
-            input[type="number"]{
-                height: 1.4rem;
-                width: 50px;
+
+            .subtotal p{
+                grid-column: 2 / 3;
+            }
+
+            .checkout{
+                font-size: 2rem;
+                text-align: center;
+                height: 100px;
+                padding-top: 50px;
+                background-color: var(--mainBg);
+            }
+            
+            .checkout a{
+                margin: 0;
+            }
+
+            .checkout a:hover{
+                cursor: pointer;
+            }
+            @media screen and (max-width: 1000px){
+                .subtotal{
+                    grid-template-columns: 1fr 2fr;
+                }
+                .item{
+                    grid-template-columns: 200px 1fr 1fr;
+                    gap: 20px;
+                }
+                .item img{
+                    grid-row: 1 / 3;
+                }
+                .item .name{
+                    margin: auto;
+                    text-align: center;
+                }
+                .item .price{
+                    grid-column: 2 / 3;
+                }
+            }
+
+            @media screen and (max-width: 650px){
+                .subtotal{
+                    grid-template-columns: 1fr;
+                    text-align: center;
+                }
+                .subtotal p{
+                    grid-column: 1 / 2;
+                }
+                .item{
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 60% 1fr 1fr 1fr 1fr;
+                }
+                .item .name{
+                    font-size: 2rem;
+                }
+                .item img{
+                    margin: auto;
+                    grid-row: 1 / 2;
+                    width: 90%;
+                }
+                .item .price{
+                    grid-column: 1 / 2;
+                }
+            }
+
+            @media screen and (max-width: 500px){
+                .item .name{
+                    font-size: 1.2rem;
+                }
             }
         </style>
     </head>
@@ -89,10 +162,11 @@
         <section class="cartItems">
         </section>
         <div class="subtotal">
-            <p></p> <p style="font-size: 2rem; margin: auto;">SUBTOTAL: $<span id="subtotal">0.00</span></p>
+            <p>SUBTOTAL: $<span id="subtotal">0.00</span></p>
         </div>
-
-        
+        <div class="checkout">
+            <a href="checkout.html">CHECKOUT</a>
+        </div>
     </body>
 
     <script src="cart.js"></script>
