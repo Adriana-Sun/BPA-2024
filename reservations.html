@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <title>Game Day Grill</title>
-        <link rel="icon" type="image/png" href="images/icon.PNG">
+        <link rel="icon" type="image/png" href="images/icon.PNG">   <!-- Setting favicon -->
 
         <!-- Importing CSS file -->
         <link href="general.css" rel="stylesheet">
@@ -12,6 +12,37 @@
 
         <!-- Page-Specific CSS -->
         <style>
+            #alert{
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                width: 60%;
+                margin: 5% auto;
+                padding: 20px;
+                background-color: var(--mainBg);
+                color: var(--mainText);
+                border-radius: 10px;
+                opacity: 0;
+                transition: opacity 0.6s; /* 600ms to fade */
+                text-align: center;
+            }
+
+            .closebtn {
+                margin-left: 15px;
+                color: black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .closebtn:hover {
+                color: white;
+            }
+
             .pageHeader{
                 margin-top: 160px;
                 margin-bottom: 120px;
@@ -21,7 +52,14 @@
                 text-shadow: 3px 3px 0 var(--subAccent);
             }
 
-            .inputForm{
+            p{
+                font-size: 1.3rem; 
+                width: 90%; 
+                margin: auto; 
+                text-align: center;
+            }
+
+            .inputForm, .cancelForm, .editForm{
                 width: 80%;
                 margin: auto;
                 margin-top: 50px;
@@ -32,25 +70,55 @@
                 gap: 30px;
                 border: 3px solid var(--darkAccent);
                 border-radius: 10px;
-                box-shadow: 10px 10px 0px var(--subBg);
+                box-shadow: 15px 15px 0px var(--subBg);
             }
 
-            .inputForm > div{
-                /* margin: 0px 5% 0px 5%; */
+            .cancelForm, .editForm{
+                grid-template-columns: 1fr;
+            }
+
+            .inputForm > div, .cancelForm > div, .editForm > div{
                 line-height: 2rem;
+            }
+            
+            .cancelForm textarea, .cancelForm input, .editForm input, .editForm select{
+                padding-left: 10px;
+            }
+
+            .cancelForm textarea{
+                padding-top: 5px;
             }
 
             label{
                 font-size: 1.2rem;
             }
-            input{
+
+            input, textarea, select{
                 border: 2px solid black;
-                width: 97%;
+                width: 100%;
                 height: 30px;
                 border-radius: 5px;
-                font-size: 1.2rem;
+                font: 1rem "Lexend", sans-serif;
                 padding-left: 2%;
+                transition: all 0.2s ease-in;
+
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
             }
+
+            select{
+                height: 2rem;
+            }
+
+            input:focus, textarea:focus, select:focus, input[type="submit"]:focus{
+                outline: none;
+                border: 2px solid var(--subBg);
+            }       
+            input[type="submit"]:focus{
+                background-color: var(--subAccent);;
+            }
+
             input[type="submit"]{
                 width: 200px;
                 height: 40px;
@@ -60,18 +128,36 @@
                 background-color: var(--darkAccent);
                 color: white;
                 border: none;
+                transition: all 0.2s ease-in;
+            }
+                input[type="submit"]:hover{
+                    cursor: pointer;
+                    background-color: var(--subAccent);
+                }
+
+            .inputForm input[type="submit"], .resIdNotif{
                 grid-column: 1 / 3;
             }
-            input[type="submit"]:hover{
-                cursor: pointer;
+
+            .resIdNotif{
+                display: none;
             }
+
             input [type="date"]::-webkit-calendar-picker-indicator {
                 opacity: 0;
             }
 
-            input:focus{
-                outline: none;
-                border: 2px solid var(--darkAccent);
+            /* to get rid of the arrows on sides of input[type='number'] */
+            .cancelForm input::-webkit-outer-spin-button,
+            .cancelForm input::-webkit-inner-spin-button,
+            .editForm input::-webkit-outer-spin-button,
+            .editForm input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                    margin: 0;
+            }
+            /* for Firefox (does same thing as above) */
+            .cancelForm input[type=number], .editForm input[type=number] {
+                -moz-appearance: textfield;
             }
 
             @media screen and (max-width: 700px){
@@ -80,12 +166,15 @@
                 }
             }
 
-            @media screen and (max-width: 500px){
+            @media screen and (max-width: 650px){
                 label{
                     font-size: 1rem;
                 }
                 .inputForm{
-                    grid-template-columns: none;
+                    grid-template-columns: 1fr;
+                }
+                .inputForm input[type="submit"], .resIdNotif{
+                    grid-column: 1 / 2;
                 }
             }
 
@@ -94,55 +183,128 @@
                     font-size: 2.5rem;
                 }
             }
+
+            @media screen and (max-width: 300px){
+                .pageHeader{
+                    font-size: 2rem;
+                }
+                .cancelForm input, textarea{
+                    width: 93%;
+                }
+            }
+
+            input[type="submit"].invalidSubmitAnimation{
+                animation: invalid-submit-shake 0.2s ease forwards;
+            }
+
+            @keyframes invalid-submit-shake{
+                10% {
+                    transform: translate(0px, -3px);
+                }
+                40% {
+                    transform: translate(1px, 3px);
+                }
+                70% {
+                    transform: translate(0px, -2px);
+                }
+                100% {
+                    transform: translate(5px, 2px);
+                }
+            }
         </style>
     </head>
 
     <body>
-        <div class="navBar">
+        <nav class="navBar">
             <a href="index.html"><span>Game Day Grill</span></a>
             <a href="menu.html">Menu</a>
-            <a href="#events">Events</a>
+            <a href="events.html">Events</a>
             <a class="active" href="reservations.html">Reservations</a>
             <a href="contact-us.html">Contact Us</a>
+            <a href="cart.html"></a>
+        </nav>
+
+        <div id="alert">
+            <span class="closebtn" onclick="this.parentElement.style.opacity='0';">&times;</span>
+            Success!
         </div>
 
         <h1 class="pageHeader">RESERVATIONS</h1>
-        <p style="font-size: 1.3rem; width: 90%; margin: auto; text-align: center;">Want to make a reservation? Fill out the form below and you'll be set!</p>
+        <p>Want to <span style="color: var(--subAccent);">make a reservation?</span> Fill out the form below and you'll be set!</p>
 
-        <div class="inputForm">
+        <form class="inputForm" onsubmit="return false;">
             <div>
                 <label for="fName">First name</label><br>
-                <input type="text" name="fName" id="fName">
+                <input type="text" name="fName" id="fName" placeholder="First name" required aria-required="true">
             </div>
             <div>
                 <label for="lName">Last name</label><br>
-                <input type="text" name="lName" id="lName">
+                <input type="text" name="lName" id="lName" placeholder="Last name" required aria-required="true">
             </div>
             <div>
                 <label for="numPeople">Number of People</label><br>
-                <input type="number" name="numPeople" id="numPeople">
+                <input type="number" name="numPeople" id="numPeople" placeholder="Ex: 2" required aria-required="true">
             </div>
             <div>
                 <label for="date">Date</label><br>
-                <input type="date" name="date" id="date">
+                <input type="date" name="date" id="date" required aria-required="true">
             </div>
             <div>
-                <label for="phoneNmb">Phone Number</label><br>
-                <input type="text" name="phoneNmb" id="phoneNmb">
+                <label for="phoneNum">Phone Number (optional)</label><br>
+                <input type="tel" name="phoneNum" id="phoneNum" placeholder="Ex: 123-456-7891">
             </div>
             <div>
                 <label for="email">Email</label><br>
-                <input type="text" name="email" id="email">
+                <input type="text" name="email" id="email" placeholder="example@gmail.com" required aria-required="true">
             </div>
             <div>
                 <label for="time">Time</label><br>
-                <input type="time" name="time" id="time">
+                <input type="time" name="time" id="time" placeholder="First name" required aria-required="true">
             </div>
             <div>
-                <label for="notes">Notes</label><br>
-                <input type="notes" name="notes" id="notes">
+                <label for="notes">Notes (optional)</label><br>
+                <input type="text" name="notes" id="notes" placeholder="Ex: Jill has a peanut allergy.">
             </div>
-            <input type="submit" value="Submit Reservation">
-        </div>
+            <p class="resIdNotif">Your reservation ID number is: <span></span></p>
+            <input type="submit" value="Submit Reservation" tabindex="0">
+        </form>
+
+        <p style="margin-top: 100px;">Want to <span style="color: var(--subAccent);">cancel a reservation?</span> Fill out the form below:</p>
+        <form class="cancelForm" onsubmit="return false;">
+            <div>
+                <label for="resNum">8-Digit Reservation Number</label><br>
+                <input type="number" name="resNum" id="resNum" placeholder="Ex: 00129390" maxlength="8" required aria-required="true">
+            </div>
+            <div>
+                <label for="reason">Reason for cancellation (optional)</label><br>
+                <textarea name="reason" id="reason" placeholder="Ex: Schedule conflict" style="height: 80px;"></textarea>
+            </div>
+            <input type="submit" value="Cancel Reservation" tabindex="0">
+        </form>
+
+        <p style="margin-top: 100px;">Want to <span style="color: var(--subAccent);">edit a reservation?</span> Fill out the form below:</p>
+        <form class="editForm" onsubmit="return false;">
+            <div>
+                <label for="resNum">8-Digit Reservation Number</label><br>
+                <input type="number" name="resNum" id="resNum" placeholder="Ex: 00129390" maxlength="8" required aria-required="true">
+            </div>
+            <div>
+                <label for="editFields">What would you like to edit?</label><br>
+                    <select name="editFields" id="editFields" required aria-required="true">
+                        <option value="select">- Select an option -</option> 
+                        <option value="firstName" data-type="text">First Name</option>
+                        <option value="lastName" data-type="text">Last Name</option>
+                        <option value="numPeople" data-type="number">Number of people</option>
+                        <option value="date" data-type="date">Date of Reservation</option>
+                        <option value="time" data-type="time">Time of Reservation</option>
+                        <option value="phoneNum" data-type="number">Phone Number</option>
+                        <option value="email" data-type="text">Email</option>
+                        <option value="notes" data-type="text">Notes</option>
+                    </select>
+            </div>
+            <input type="submit" value="Submit Changes">
+        </form>
     </body>
+
+    <script src="reservations.js"></script>
 </html>

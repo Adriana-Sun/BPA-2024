@@ -9,7 +9,7 @@ html {
     --mainBg: #DADCE7;
     --subBg: #fd9c19;
     --mainText: #010C13;
-    --accent: #e8d449;
+    --accent: #ffe84f;
     --subAccent: #c95a00;
     --darkAccent: #b32c10;
 }
@@ -25,7 +25,8 @@ body {
     width: 100%;
     max-width: 1800px;
     height: 60px;
-    border-bottom: 3px solid var(--subBg);
+    /* border-bottom: 3px solid var(--subBg); */
+    box-shadow: 0px 5px 5px #010c133b;
     background-color: var(--darkAccent);
     position: fixed;
     top: 0;
@@ -42,13 +43,15 @@ body {
     text-decoration: none;
     height: 60px;
     float: left;
+    background-color: var(--darkAccent);
+    transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
 }
 
 .navBar a:hover{
     background-color: var(--subAccent);
 }
 
-.navBar a:focus{
+.navBar a:focus, .navBar a:last-child:focus{
     outline: none;
     background-color: var(--subAccent);
 }
@@ -85,11 +88,52 @@ body {
     background-repeat: repeat;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; 
+    animation: move-text-bg-reverse 0.5s ease forwards;
 }
 
-.navBar a:first-child:hover{
+.navBar a:first-child span:hover{
+        animation: move-text-bg 0.5s ease-in forwards;
+}
+
+@keyframes move-text-bg {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 650%;
+    }
+}
+
+@keyframes move-text-bg-reverse {
+    0% {
+        background-size: 650%;
+    }
+    100% {
+        background-size: 100%;
+    }
+}
+.navBar a:first-child:hover, a:last-child:hover{
     background-color: var(--darkAccent);
-    
+}
+
+.navBar a:last-child{
+    float: right;
+    background-color: var(--mainText);
+    background-image: url("images/shopping-bag.png");
+    background-size: 50%;
+    width: 60px;
+    background-position: 20px;
+    background-repeat: no-repeat;
+}
+
+/* might change this to be a js function */
+@media screen and (max-width: 800px){
+    .navBar > a{
+        display: none;
+    }
+    .navBar a:first-child, .navBar a:last-child{
+        display: block;
+    }
 }
 
 

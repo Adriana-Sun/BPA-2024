@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <title>Game Day Grill</title>
-        <link rel="icon" type="image/png" href="images/icon.PNG">
+        <link rel="icon" type="image/png" href="images/icon.PNG">   <!-- Setting favicon -->
 
         <!-- Linking the General CSS Sheet -->
         <link href="general.css" rel="stylesheet">
@@ -12,6 +12,35 @@
 
         <!-- Page-specific CSS -->
         <style>
+            #alert{
+                position: fixed;
+                top: 80px;
+                left: 20%;
+                width: 60%;
+                padding: 20px;
+                background-color: var(--subBg);
+                color: var(--mainText);
+                border-radius: 10px;
+                opacity: 0;
+                transition: opacity 0.6s; /* 600ms to fade */
+                text-align: center;
+            }
+
+            .closebtn {
+                margin-left: 15px;
+                color: black;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .closebtn:hover {
+                color: white;
+            }
+
             .pageHeader{
                 margin-top: 160px;
                 margin-bottom: 120px;
@@ -67,10 +96,16 @@
                         color: white;
                         border: none;
                         border-radius: 15px;
+                        transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
                     }
-                    .menuItem button:hover{
+                    .menuItem button:hover, .menuItem button:focus{
                         background-color: var(--subAccent);
                         cursor: pointer;
+                    }
+                    .menuItem button:focus{
+                        border: 5px solid var(--subBg);
+                        border-radius: 15px;
+                        outline: none;
                     }
 
             @media (max-width: 1050px){
@@ -93,45 +128,53 @@
         </style>
     </head>
     <body>
-        <div class="navBar">
+        <nav class="navBar">
             <a href="index.html"><span>Game Day Grill</span></a>
             <a class="active" href="menu.html">Menu</a>
-            <a href="#events">Events</a>
+            <a href="events.html">Events</a>
             <a href="reservations.html">Reservations</a>
             <a href="#contact">Contact Us</a>
+            <a href="cart.html"></a>
+        </nav>
+
+        <div id="alert">
+            <span class="closebtn" onclick="this.parentElement.style.opacity='0';">&times;</span>
+            Added to cart!
         </div>
 
         <h1 class="pageHeader">MENU</h1>
 
         <div class="wrapper">
             <div class="menuItem">
-                <img src="images/brownies.jpeg">
+                <img src="images/brownies.jpeg" alt="Brownies">
                 <h1>Triple Chocolate Brownies</h1>
                 <p>Description Here</p>
                 <p class="price">$6.99</p>
-                <button>Add to cart</button>
+                <button data-id="brownies" data-name="Triple Chocolate Brownies" data-price="6.99" data-url="images/brownies.jpeg">Add to cart</button>
             </div>
             <div class="menuItem">
-                <img src="images/rib-eyed-steak.jpeg">
+                <img src="images/rib-eye-steak.avif" alt="Rib-eye-steak">
                 <h1>Grandma's Rib-Eyed Steak</h1>
                 <p>Description Here</p>
-                <p class="price">$6.99</p>
-                <button>Add to cart</button>
+                <p class="price">$19.99</p>
+                <button data-id="rib-eye-steak" data-name="Grandma's Rib-Eyed Steak" data-price="19.99" data-url="images/rib-eye-steak.avif">Add to cart</button>
             </div>
             <div class="menuItem">
-                <img src="images/brownies.jpeg">
-                <h1>Triple Chocolate Brownies</h1>
+                <img src="images/burger-fries.jpeg">
+                <h1>Classic Gameburger</h1>
                 <p>Description Here</p>
-                <p class="price">$6.99</p>
-                <button>Add to cart</button>
+                <p class="price">$13.99</p>
+                <button data-id="classic-burger" data-name="Classic Gameburger" data-price="13.99" data-url="images/burger-fries.jpeg">Add to cart</button>
             </div>
             <div class="menuItem">
-                <img src="images/brownies.jpeg">
-                <h1>Triple Chocolate Brownies</h1>
+                <img src="images/steak-with-mashed-potatoes.jpeg">
+                <h1>Food</h1>
                 <p>Description Here</p>
-                <p class="price">$6.99</p>
-                <button>Add to cart</button>
+                <p class="price">$22.99</p>
+                <button data-id="food" data-name="Food" data-price="22.99" data-url="images/steak-with-mashed-potatoes.jpeg">Add to cart</button>
             </div>
         </div>
     </body>
+
+    <script src="menu-add-cart.js"></script>
 </html>

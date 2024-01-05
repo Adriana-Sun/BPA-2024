@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game Day Grill</title>
+        <link rel="icon" type="image/png" href="images/icon.PNG">   <!-- Setting favicon -->
+
+        <!-- Importing CSS file -->
+        <link href="general.css" rel="stylesheet">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width" />
+
+        <style>
+            .pageHeader{
+                margin-top: 160px;
+                margin-bottom: 120px;
+                text-align: center;
+                font: 4rem "Bungee", sans-serif;
+                color: var(--subBg);
+                text-shadow: 3px 3px 0 var(--subAccent);
+            }
+
+            .checkout{
+                width: 80%;
+                height: 500px;
+                box-shadow: 10px 10px 0px var(--subAccent), 0px 0px 10px var(--mainBg);
+                border-radius: 10px;
+                overflow: hidden;
+                margin: auto;
+                display: grid;
+                grid-template-columns: 3fr 1fr;
+            }
+
+            .checkout div{
+                margin: auto;
+                width: 90%;
+            }
+            .checkout input{
+                width: 100%;
+            }
+            .checkout input[type='submit']{
+                width: 50%;
+                height: 40px;
+                margin: auto;
+                background-color: var(--darkAccent);
+                border: none;
+                border-radius: 10px;
+                color: white;
+                font: bold 1.2rem "Lexend", sans-serif;
+                transition: all 0.2s ease-in;
+            }
+                .checkout input[type='submit']:hover{
+                    cursor: pointer;
+                    background-color: var(--subAccent);
+                }
+
+            .checkout .receipt, .checkout .subtotal{
+                width: 100%;
+                height: 100%;
+                grid-column: 2 / 3;
+            }
+            .checkout .receipt{
+                background-color: var(--mainBg);
+                grid-row: 1 / 4;
+            }
+            .checkout .subtotal{
+                background-color: var(--subBg);
+                text-align: center;
+                grid-row: 4 / 4;
+            }
+            
+            .subtotal p{
+                margin: auto;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navBar">
+            <a href="index.html"><span>Game Day Grill</span></a>
+            <a href="menu.html">Menu</a>
+            <a href="events.html">Events</a>
+            <a href="reservations.html">Reservations</a>
+            <a href="#contact">Contact Us</a>
+            <a href="cart.html"></a>
+        </nav>
+
+        <h1 class="pageHeader">Checkout</h1>
+        <form class="checkout">
+            <div>
+                <label for="name">Cardholder Name</label><br>
+                <input type="text" name="name" id="name" placeholder="Enter name" required aria-required="true">
+            </div>
+            <div>
+                <label for="cardNum">Credit Card Number</label><br>
+                <input type="number" name="cardNum" id="cardNum" placeholder="Enter credit card number" required aria-required="true">
+            </div>
+            <div>
+                <label for="securityNum">Security Number</label><br>
+                <input type="number" name="securityNum" id="securityNum" placeholder="Enter security number" required aria-required="true">
+            </div>
+            <input type="submit" value="Complete Order">
+            <div class="receipt">
+                Cart:<br>
+            </div>
+            <div class="subtotal">
+                <p>Subtotal: $<span>0.00</span></p>
+            </div>
+        </form>
+    </body>
+</html>
