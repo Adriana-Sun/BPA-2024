@@ -15,10 +15,12 @@
             #alert{
                 position: fixed;
                 top: 80px;
-                left: 20%;
+                left: 0;
+                right: 0;
                 width: 60%;
+                margin: 5% auto;
                 padding: 20px;
-                background-color: var(--subBg);
+                background-color: var(--mainBg);
                 color: var(--mainText);
                 border-radius: 10px;
                 opacity: 0;
@@ -128,14 +130,17 @@
                 border: none;
                 transition: all 0.2s ease-in;
             }
+                input[type="submit"]:hover{
+                    cursor: pointer;
+                    background-color: var(--subAccent);
+                }
 
-            input[type="submit"]:hover{
-                cursor: pointer;
-                background-color: var(--subAccent);
+            .inputForm input[type="submit"], .resIdNotif{
+                grid-column: 1 / 3;
             }
 
-            .inputForm input[type="submit"]{
-                grid-column: 1 / 3;
+            .resIdNotif{
+                display: none;
             }
 
             input [type="date"]::-webkit-calendar-picker-indicator {
@@ -168,7 +173,7 @@
                 .inputForm{
                     grid-template-columns: 1fr;
                 }
-                .inputForm input[type="submit"]{
+                .inputForm input[type="submit"], .resIdNotif{
                     grid-column: 1 / 2;
                 }
             }
@@ -185,6 +190,25 @@
                 }
                 .cancelForm input, textarea{
                     width: 93%;
+                }
+            }
+
+            input[type="submit"].invalidSubmitAnimation{
+                animation: invalid-submit-shake 0.2s ease forwards;
+            }
+
+            @keyframes invalid-submit-shake{
+                10% {
+                    transform: translate(0px, -3px);
+                }
+                40% {
+                    transform: translate(1px, 3px);
+                }
+                70% {
+                    transform: translate(0px, -2px);
+                }
+                100% {
+                    transform: translate(5px, 2px);
                 }
             }
         </style>
@@ -239,8 +263,9 @@
             </div>
             <div>
                 <label for="notes">Notes (optional)</label><br>
-                <input type="notes" name="notes" id="notes" placeholder="Ex: Jill has a peanut allergy.">
+                <input type="text" name="notes" id="notes" placeholder="Ex: Jill has a peanut allergy.">
             </div>
+            <p class="resIdNotif">Your reservation ID number is: <span></span></p>
             <input type="submit" value="Submit Reservation" tabindex="0">
         </form>
 
@@ -267,14 +292,14 @@
                 <label for="editFields">What would you like to edit?</label><br>
                     <select name="editFields" id="editFields" required aria-required="true">
                         <option value="select">- Select an option -</option> 
-                        <option value="fNameEdit" data-type="text">First Name</option>
-                        <option value="lNameEdit" data-type="text">Last Name</option>
-                        <option value="numPeopleEdit" data-type="number">Number of people</option>
-                        <option value="dateEdit" data-type="date">Date of Reservation</option>
-                        <option value="timeEdit" data-type="time">Time of Reservation</option>
-                        <option value="phoneNumEdit" data-type="number">Phone Number</option>
-                        <option value="emailEdit" data-type="text">Email</option>
-                        <option value="notesEdit" data-type="text">Notes</option>
+                        <option value="firstName" data-type="text">First Name</option>
+                        <option value="lastName" data-type="text">Last Name</option>
+                        <option value="numPeople" data-type="number">Number of people</option>
+                        <option value="date" data-type="date">Date of Reservation</option>
+                        <option value="time" data-type="time">Time of Reservation</option>
+                        <option value="phoneNum" data-type="number">Phone Number</option>
+                        <option value="email" data-type="text">Email</option>
+                        <option value="notes" data-type="text">Notes</option>
                     </select>
             </div>
             <input type="submit" value="Submit Changes">

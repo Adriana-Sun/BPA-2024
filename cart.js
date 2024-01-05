@@ -49,6 +49,7 @@ function displayCart(){
                 quantityInput.addEventListener('input', updateQuantity(item));
                 quantitySpan.appendChild(quantityInput);
             quantity.appendChild(quantitySpan);
+        quantity.classList.add("quantity");
         itemContainer.appendChild(quantity);
 
         let price = document.createElement("p");
@@ -56,6 +57,7 @@ function displayCart(){
             let priceVal = document.createElement("span");
             priceVal.innerText = cartItem.data.price;
         price.appendChild(priceVal);
+        price.classList.add("price");
         itemContainer.appendChild(price);
 
         let remButton = document.createElement("button");
