@@ -57,7 +57,7 @@
                 font-family: "Bungee", sans-serif;
             }
 
-            .appetizers{
+            .menu{
                 width: 90%;
                 margin: auto;
                 display: grid;
@@ -115,20 +115,20 @@
                         outline: none;
                     }
 
-            @media (max-width: 1050px){
-                .appetizers{
+            @media (max-width: 1200px){
+                .menu{
                     grid-template-columns: repeat(3, 1fr);
                 }
             }
 
-            @media (max-width: 900px){
-                .appetizers{
+            @media (max-width: 950px){
+                .menu{
                     grid-template-columns: repeat(2, 1fr);
                 }
             }
 
             @media (max-width: 600px){
-                .appetizers{
+                .menu{
                     grid-template-columns: 1fr;
                 }
             }
@@ -152,7 +152,7 @@
         <h1 class="pageHeader">MENU</h1>
 
         <h1>Appetizers</h1>
-        <div class="appetizers">
+        <div class="menu" id="appetizers">
             <div class="menuItem">
                 <img src="images/brownies.jpeg" alt="Brownies">
                 <h1>Triple Chocolate Brownies</h1>
@@ -161,7 +161,39 @@
                 <button data-id="brownies" data-name="Triple Chocolate Brownies" data-price="6.99" data-url="images/brownies.jpeg">Add to cart</button>
             </div>
             <div class="menuItem">
-                <img src="images/rib-eye-steak.avif" alt="Rib-eye-steak">
+                <img src="images/rib-eyed-steak.jpeg" alt="Rib-eye-steak">
+                <h1>Grandma's Rib-Eyed Steak</h1>
+                <p>Description Here</p>
+                <p class="price">$19.99</p>
+                <button data-id="rib-eye-steak" data-name="Grandma's Rib-Eyed Steak" data-price="19.99" data-url="images/rib-eye-steak.avif">Add to cart</button>
+            </div>
+            <div class="menuItem">
+                <img src="images/burger-fries.jpeg">
+                <h1>Classic Gameburger</h1>
+                <p>Description Here</p>
+                <p class="price">$13.99</p>
+                <button data-id="classic-burger" data-name="Classic Gameburger" data-price="13.99" data-url="images/burger-fries.jpeg">Add to cart</button>
+            </div>
+            <div class="menuItem">
+                <img src="images/steak-with-mashed-potatoes.jpeg">
+                <h1>Food</h1>
+                <p>Description Here</p>
+                <p class="price">$22.99</p>
+                <button data-id="food" data-name="Food" data-price="22.99" data-url="images/steak-with-mashed-potatoes.jpeg">Add to cart</button>
+            </div>
+        </div>
+
+        <h1>Entrees</h1>
+        <div class="menu" id="entrees">
+            <div class="menuItem">
+                <img src="images/brownies.jpeg" alt="Brownies">
+                <h1>Triple Chocolate Brownies</h1>
+                <p>Description Here</p>
+                <p class="price">$6.99</p>
+                <button data-id="brownies" data-name="Triple Chocolate Brownies" data-price="6.99" data-url="images/brownies.jpeg">Add to cart</button>
+            </div>
+            <div class="menuItem">
+                <img src="images/rib-eyed-steak.jpeg" alt="Rib-eyed-steak">
                 <h1>Grandma's Rib-Eyed Steak</h1>
                 <p>Description Here</p>
                 <p class="price">$19.99</p>
