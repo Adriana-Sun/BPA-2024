@@ -92,36 +92,7 @@ body {
     
 }
 
-.logo{
-    width: 125px;
-    
-    padding-top: 25px;
-    float:left;
-    
-}
-.bar-info{
-    color: rgb(202, 63, 63);
-    
-    padding-left: 100px;
-    font-size: 20px;
-    margin-right: 50px;
-    margin-top: 50px;
-    float:left;
-}
-.lower-info{
-    color:#010C13;
-    float: left;
-    font-size: 12px;
-    padding-left: 15px;
-    padding-top: 250px;
-}
-.button{
-    float: left;
-    margin-right:15px;
-    padding-top: 25px;
-    padding-left: 50px;
-    
-}
+
 
 /* just need a top border, so this should be changed from
     "border" shorthand to "border-top: 1px solid black;" */
