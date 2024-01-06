@@ -141,7 +141,7 @@ body {
 }
 
 /* might change this to be a js function */
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1100px){
     .navBar > a{
         display: none;
     }
