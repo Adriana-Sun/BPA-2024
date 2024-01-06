@@ -25,12 +25,10 @@ body {
     width: 100%;
     max-width: 1800px;
     height: 60px;
-    /* border-bottom: 3px solid var(--subBg); */
     box-shadow: 0px 5px 5px #010c133b;
     background-color: var(--darkAccent);
     position: fixed;
     top: 0;
-    overflow: hidden;
     z-index: 2;
 }
 
@@ -79,17 +77,20 @@ body {
 }
 
 .navBar a:first-child{
-    background-image: url("images/icon.PNG");
-    background-size: 20%;
-    background-position: 2.5%;
-    background-repeat: no-repeat;
-    padding-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
     font-family: "Bungee", sans-serif;
     color: black;
     margin: auto;
 }
 
-.navBar a:first-child span{
+.navBar a:first-child img{
+    height: 60px;
+}
+
+.navBar a:first-child p{
     background-color: var(--mainText);
     background-image: linear-gradient(
             45deg,
@@ -104,7 +105,7 @@ body {
     animation: move-text-bg-reverse 0.5s ease forwards;
 }
 
-.navBar a:first-child span:hover{
+.navBar a:first-child p:hover{
     animation: move-text-bg 0.5s ease-in forwards;
 }
 
@@ -144,59 +145,38 @@ body {
     .navBar > a{
         display: none;
     }
-    
-    .navBar a:first-child, .navBar a:last-child, .navBar button{
+
+    .navBar.responsive {position: relative;}
+    .navBar.responsive button {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navBar.responsive a:last-child{
+        position: absolute;
+        right: 60px;
+        top: 0;
+    }
+    .navBar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .navBar a:first-child{
+        display: flex;
+        justify-content: left;
+    }
+    .navBar a:last-child, .navBar button{
         display: block;
     }
 }
 
 @media screen and (max-width: 450px){
-    .navBar a span{
+    .navBar a p{
         display: none;
     }
     .navBar a:first-child{
         margin-left: 5px;
         background-size: 70%;
     }
-}
-
-.logo{
-    width: 125px;
-    
-    padding-top: 25px;
-    float:left;
-    
-}
-.bar-info{
-    color: rgb(202, 63, 63);
-    
-    padding-left: 100px;
-    font-size: 20px;
-    margin-right: 50px;
-    margin-top: 50px;
-    float:left;
-}
-.lower-info{
-    color:#010C13;
-    float: left;
-    font-size: 12px;
-    padding-left: 15px;
-    padding-top: 250px;
-}
-.button{
-    float: left;
-    margin-right:15px;
-    padding-top: 25px;
-    padding-left: 50px;
-    
-}
-
-/* just need a top border, so this should be changed from
-    "border" shorthand to "border-top: 1px solid black;" */
-#box{
-    margin: auto;
-    background-color: white;
-    border-top: 1px solid #000000;
-    width: 100%;
-    height: 200px;
 }

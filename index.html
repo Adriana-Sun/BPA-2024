@@ -108,6 +108,7 @@
                             margin-left: 10px;
                             margin-top: 12.5px;
                             vertical-align: middle;
+                            overflow: scroll;
                         }
                         .menuWrapper .slideItem:last-child{
                             margin-right: 10px;
@@ -145,6 +146,12 @@
                 @media screen and (max-width: 950px){
                     .menuWrapper .slideItem{
                         width: calc(100% - 20px);
+                    }
+                }
+
+                @media screen and (max-width: 400px){
+                    .menuContainer{
+                        height: 600px;
                     }
                 }
 
@@ -205,6 +212,7 @@
                         margin-top: 12.5px;
                         margin-left: 15px;
                         vertical-align: middle;
+                        overflow: scroll;
                     }
                         .eventsWrapper .slideItem:last-child{
                             margin-right: 15px;
@@ -246,17 +254,23 @@
                         width: calc(100% - 20px);
                     }
                 }
+
+                @media (max-width: 500px){
+                    .eventsContainer{
+                        height: 700px;
+                    }
+                }
         </style>
     </head>
 
     <body>
         <nav class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
+            <a href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
             <a href="menu.html">Menu</a>
             <a href="events.html">Events</a>
             <a href="reservations.html">Reservations</a>
             <a href="contact-us.html">Contact Us</a>
-            <button>&#9776;</button>
+            <button onclick="updateNavBar()">&#9776;</button>
             <a href="cart.html"></a>
         </nav>
 
@@ -357,36 +371,8 @@
             </div>
             <button class="arrowSlider" id="right">&gt;</button>
         </div>
-
-        <div id="box">
-            <a href="index.html">
-                <img class="logo" src="https://th.bing.com/th/id/OIP.zISRSOrQF36FlkP0kYMCiwHaHa?rs=1&pid=ImgDetMain">
-            </a>
-            <a class="bar-info" href = "#contact">CONTACT US</a>
-            <a class="bar-info" href = "#employment">EMPLOYMENT</a>
-            <a class="bar-info" href = "#location">LOCATION</a>
-            <a class="bar-info" href = "#nutrition">NUTRITION INFORMATION</a>
-            <a class="bar-info" href = "about-us.html">OUR STORY</a>
-            <a class="bar-info" href = "about-us.html">WHO WE ARE</a>
-            <a class="lower-info" href = "#copyright">COPYRIGHT @ 2023 GAME DAY GRILL ALL RIGHTS RESERVED</>
-            <a class="lower-info" href = "https://brinker.com/terms-and-conditions">TERMS & CONDITIONS</a>
-            <a class="lower-info" href = "#map">SITE MAP</a>
-            <a class="lower-info" href = "#web">WEB ACCESSIBILITY</a>
-            <a class="lower-info" href = "https://brinker.com/privacy">PRIVACY POLICY</a>
-            <a href="index.html">
-                <img class="button" src="https://pluspng.com/img-png/download-on-app-store-png-how-to-download-the-app-1945.png" width="100" height="75">
-            </a>
-            <a href="index.html">
-                <img class="button" src="https://th.bing.com/th/id/OIP.YbA4ryLXGwofx2VAulyCvQHaEx?rs=1&pid=ImgDetMain" width="100" height="100">
-            </a>
-            <a href="https://www.facebook.com/">
-                <img class="button" src="https://www.pngkit.com/png/full/213-2133094_like-us-on-facebook-logo-high-resolution.png" width="100" height="75">
-            </a>
-            <a href="https://twitter.com/">
-                <img class="button" src="https://logodix.com/logo/654074.png" width="100" height="75">
-            </a>
-        </div>
     </body>
 
     <script src="index.js"></script>
+    <script src="general.js"></script>
 </html>

@@ -11,7 +11,6 @@
         <meta name="viewport" content="width=device-width" />
 
         <style>
-
             #alert{
                 position: fixed;
 
@@ -115,7 +114,6 @@
                         width: 90%;
                         border-radius: 5px;
                         color: white;
-                        /* box-shadow: 5px 5px 0px var(--subBg); */
                         background-repeat: no-repeat;
                         text-align: right;
                         padding: 2%;
@@ -151,16 +149,44 @@
                     transform: translate(5px, 2px);
                 }
             }
+
+            @media screen and (max-width: 700px){
+                .checkout{
+                    grid-template-columns: 1fr;
+                    height: 900px;
+                }
+
+                .checkout input[type='submit']{
+                    margin-top: 60px;
+                    margin-bottom: 0px;
+                }
+
+                .checkout .receipt, .checkout .subtotal{
+                    grid-column: 1 / 2;
+                    grid-row: auto;
+                }
+
+                .checkout .receipt{
+                    height: 300px;
+                }
+            }
+
+            @media screen and (max-width: 500px){
+                .checkout input[type='submit']{
+                    width: 225px;
+                }
+            }
         </style>
     </head>
 
     <body>
         <nav class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
+            <a href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
             <a href="menu.html">Menu</a>
             <a href="events.html">Events</a>
             <a href="reservations.html">Reservations</a>
             <a href="contact-us.html">Contact Us</a>
+            <button onclick="updateNavBar()">&#9776;</button>
             <a href="cart.html"></a>
         </nav>
 
@@ -196,4 +222,5 @@
     </body>
 
     <script src="checkout.js"></script>
+    <script src="general.js"></script>
 </html>
