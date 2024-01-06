@@ -34,7 +34,7 @@ body {
     z-index: 2;
 }
 
-.navBar a {
+.navBar a{
     color: white;
     line-height: 60px;
     text-align: center;
@@ -44,14 +44,27 @@ body {
     height: 60px;
     float: left;
     background-color: var(--darkAccent);
-    transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
+    transition: background-color 0.3s ease-in;  /* to make the links fade in and out when hovered */
 }
 
-.navBar a:hover{
+.navBar button{
+    display: none;
+    float: left;
+    height: 60px;
+    background-color: var(--darkAccent);
+    border: none;
+    transition: background-color 0.3s ease-in;  /* to make the button fade in and out when hovered */
+}
+    .navBar button img{
+        height: 100%;
+    }
+
+.navBar a:hover, .navBar button:hover{
+    cursor: pointer;
     background-color: var(--subAccent);
 }
 
-.navBar a:focus, .navBar a:last-child:focus{
+.navBar a:focus, .navBar a:last-child:focus, .navBar button:focus{
     outline: none;
     background-color: var(--subAccent);
 }
@@ -92,7 +105,7 @@ body {
 }
 
 .navBar a:first-child span:hover{
-        animation: move-text-bg 0.5s ease-in forwards;
+    animation: move-text-bg 0.5s ease-in forwards;
 }
 
 @keyframes move-text-bg {
@@ -131,8 +144,19 @@ body {
     .navBar > a{
         display: none;
     }
-    .navBar a:first-child, .navBar a:last-child{
+    
+    .navBar a:first-child, .navBar a:last-child, .navBar button{
         display: block;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .navBar a span{
+        display: none;
+    }
+    .navBar a:first-child{
+        margin-left: 5px;
+        background-size: 70%;
     }
 }
 
