@@ -49,15 +49,15 @@ body {
 
 .navBar button{
     display: none;
-    float: left;
+    float: right;
     height: 60px;
+    width: 60px;
+    font-size: 40px;
     background-color: var(--darkAccent);
+    color: white;
     border: none;
     transition: background-color 0.3s ease-in;  /* to make the button fade in and out when hovered */
 }
-    .navBar button img{
-        height: 100%;
-    }
 
 .navBar a:hover, .navBar button:hover{
     cursor: pointer;
