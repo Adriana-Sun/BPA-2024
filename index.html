@@ -5,7 +5,7 @@
         <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Linking the General CSS Sheet -->
-        <link href="general.css" rel="stylesheet">   <!-- Setting favicon -->
+        <link href="general.css" rel="stylesheet">
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -43,11 +43,6 @@
                         font: bold 18px "Lexend", sans-serif;
                         color: white;
                         margin-top: 50px;
-                        transition: all 0.2s ease-out;
-                    }
-                    .homeWrapper a:hover{
-                        background-color: var(--subAccent);
-                        border-color: var(--subAccent);
                     }
 
                 .menuHeader{
@@ -236,7 +231,6 @@
                             color: white;
                         }
                         .eventsWrapper a:hover{
-                            transition: all 0.2s ease-out;
                             cursor: pointer;
                             background-color: var(--subAccent);
                         }
@@ -249,14 +243,14 @@
     </head>
 
     <body>
-        <nav class="navBar">
+        <div class="navBar">
             <a href="index.html"><span>Game Day Grill</span></a>
             <a href="menu.html">Menu</a>
-            <a href="events.html">Events</a>
+            <a href="#events">Events</a>
             <a href="reservations.html">Reservations</a>
-            <a href="#contact">Contact Us</a>
+            <a >Contact Us</a>
         </div>
-
+        
         <div class="homeHeader">
             <div class="homeWrapper">
                 <h1>Game Day Grill</h1>
@@ -284,7 +278,7 @@
                         Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
                         Author: Debbie Tingzon 
                         License: Creative Commons by 2.0-->
-                    <img src="images/rib-eye-steak.avif" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
+                    <img src="images/rib-eyed-steak.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
                     <div class="slideText">
                         <h1>Grandma's Rib-Eye Steak</h1>
                         <p>A 18 ounce steak so delicious even your grandma would approve! </p>
@@ -347,7 +341,7 @@
                 </div>
                 <div class="slideItem" draggable="false">
                     <p>Still interested?</p>
-                    <a href="#events"tabindex="0">Learn More</a>
+                    <a href="#events"tabindex="1">Learn More</a>
                 </div>
             </div>
             <button class="arrowSlider" id="right">&gt;</button>

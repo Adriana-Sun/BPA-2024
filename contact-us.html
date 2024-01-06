@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>Game Day Grill</title>
+        <title>Contact Us</title>
         <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Importing CSS file -->
@@ -14,11 +14,14 @@
         <style>
             .pageHeader{
                 margin-top: 160px;
-                margin-bottom: 120px;
-                text-align: center;
+                margin-bottom: 100px;
                 font: 4rem "Bungee", sans-serif;
                 color: var(--subBg);
                 text-shadow: 3px 3px 0 var(--subAccent);
+            }
+            iframe{
+                float:right;
+                margin-top: -350px;
             }
 
             .inputForm{
@@ -93,31 +96,24 @@
                 .pageHeader{
                     font-size: 2.5rem;
                 }
+                .contact-info{
+                    font-size: 2rem;
+                }
             }
 
-
-            
-            
-            .title{
-                text-align: center;
+            .width-spacing{
+                white-space: normal;
                 font-size: 1rem;
+                width: 90%;
+                margin: auto;
+                text-align: left;
+            
             }
-            .info{
-                font-size: 1 rem;
-                text-align: center;
+            .contact-info{
+                font-size: 1.5rem;
+                margin-bottom: -50px;
+                text-align: left;
             }
-            .links{
-                font-size: 1 rem;
-                text-align: center;                
-            }
-            #ex1 {
-                background-color: lightblue;
-                border: solid black 1px;
-                margin-inline: 35px;
-            }
-
-
-
         </style>
     </head>
 
@@ -130,17 +126,20 @@
             <a class="active" href="contact-us.html">Contact Us</a>
         </div>
 
+        <div class="width-spacing">
+            <h1 class="pageHeader" style="text-align: left;">CONTACT US<br></h1>
+                <div class="contact-info">
+                    <p>Telephone Number: 214-123-3467</p>
+                    <p>Email Address: gamedaygrill2324@gmail.com</p>
+                    <p>Location: 1705 W Sycamore St, Denton, TX 76201</p>
+                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.0630071845703!2d-97.15383018906746!3d33.21244437337422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864dca699107f405%3A0xb365a33ec0a02b54!2sMcConnell%20Hall!5e0!3m2!1sen!2sus!4v1704433979498!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-        <h1 class="pageHeader">CONTACT US<br></h1>
-            <p>Telephone Number: 214-123-3467</p>
-            <p>Email Address: gamedaygrill2324@gmail.com</p>
-            <p>Location1705 W Sycamore St, Denton, TX 76201</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3338.0630071845703!2d-97.15383018906746!3d33.21244437337422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864dca699107f405%3A0xb365a33ec0a02b54!2sMcConnell%20Hall!5e0!3m2!1sen!2sus!4v1704433979498!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        
-            <h1 class="pageHeader">SEND FEEDBACK</h1>
-            <p style="font-size: 1.3rem; width: 90%; margin: auto; text-align: center;">Want to tell us your Game Day Grill experience. Fill out the form below and you'll be set!</p>    
-        <div class="inputForm">
+            
+                <h1 class="pageHeader" style="text-align: center;">SEND FEEDBACK</h1>
+                <p style="font-size: 1.3rem; width: 90%; margin: auto; text-align: center;">Want to tell us your Game Day Grill experience. Fill out the form below and you'll be set!</p>    
+        </div> 
+                <div class="inputForm">
             <div>
                 <label for="fName">First name</label><br>
                 <input type="text" name="fName" id="fName">
@@ -166,13 +165,11 @@
                 <label for="time">Rate your Experience out of 5 stars</label><br>
                 <input type="=time" name="=time" id="time">
             </div>
-            
             <div>
-                <label for="notes">FEEDBACK</label><br>
-                <input type="notes" name="notes" id="notes">
+                <label for="reason">Feedback</label><br>
+                <textarea name="reason" id="reason" placeholder="Ex: Did you enjoy dining with us?" style="height: 80px;"></textarea>
             </div>
-            <input type="submit" value="Submit Feedback">
-
+            
 
             
         </div>
