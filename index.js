@@ -1,4 +1,4 @@
-const body = document.querySelector("body");
+var body = document.querySelector("body");
 
 /* MENU SLIDER SETUP CODE */
 var menuContainer = document.querySelector(".menuContainer");

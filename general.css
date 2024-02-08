@@ -19,6 +19,8 @@ body {
     margin: auto; /* this centers the body horizontally */
     color: var(--mainText);
     font: 1rem "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .navBar{
