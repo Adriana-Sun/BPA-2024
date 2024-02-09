@@ -19,82 +19,112 @@
                 text-shadow: 3px 3px 0 var(--subAccent);
             }
 
+            .noItems{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 1.5rem;
+                width: fit-content;
+                margin: auto;
+            }
+                .noItems a{
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    color: white;
+                    background-color: var(--darkAccent);
+                    height: 3rem;
+                    width: 200px;
+                    border-radius: 10px;
+                    margin-top: 30px;
+                    transition: all 0.2s ease-in;
+                }
+                    .noItems a:hover, .noItems a:focus{
+                        background-color: var(--subAccent);
+                    }
+
             .cartItems{
                 width: 90%;
                 margin: auto;
                 margin-bottom: 50px;
             }
 
-            .item{
-                display: grid;
-                grid-template-columns: 200px 1fr 1fr 1fr 1fr;
-                gap: 15px;
-                margin-top: 40px;
-            }
+                .item{
+                    display: grid;
+                    grid-template-columns: 200px 1fr 1fr 1fr 1fr;
+                    gap: 15px;
+                    margin-top: 40px;
+                }
 
-            .item h1, .item p{
-                margin: auto;
-            }
+                    .item h1, .item p{
+                        margin: auto;
+                    }
 
-            .item img{
-                width: 200px;
-                border-radius: 10px;
-                box-shadow: 10px 10px 0px var(--subAccent);
-            }
+                    .item img{
+                        width: 200px;
+                        border-radius: 10px;
+                        box-shadow: 10px 10px 0px var(--subBg);
+                    }
+                    
+                    .item .name{
+                        margin-left: 40px;
+                        font: bold 1.2rem "Lexend", sans-serif;
+                        color: var(--darkAccent);
+                    }
+                    .item input{
+                        border: 1px solid black;
+                        border-radius: 5px;
+                        font: 1rem "Lexend", sans-serif;
+                        transition: all 0.1s ease-in;
+                    }
+                        .item input:focus{
+                            outline: none;
+                            border: 5px solid var(--subAccent);
+                        }
+                    .item button{
+                        margin: auto;
+                        width: 100px;
+                        height: 2rem;
+                        background-color: var(--darkAccent);
+                        color: white;
+                        font: 1rem "Lexend", sans-serif;
+                        border: none;
+                        border-radius: 10px;
+                        transition: all 0.2s ease-out;
+                    }
+                        .item button:hover{
+                            background-color: var(--subAccent);
+                            cursor: pointer;
+                        }
             
-            .item .name{
-                margin-left: 40px;
-                font: bold 1.2rem "Lexend", sans-serif;
-                color: var(--darkAccent);
-            }
-
             input[type="number"]{
                 height: 1.4rem;
                 width: 50px;
             }
-            .item button{
-                margin: auto;
-                width: 100px;
-                height: 2rem;
-                background-color: var(--darkAccent);
-                color: white;
-                font: 1rem "Lexend", sans-serif;
-                border: none;
-                border-radius: 10px;
-                transition: all 0.2s ease-out;
-            }
-                .item button:hover{
-                    background-color: var(--subAccent);
-                    cursor: pointer;
-                }
             
             .subtotal{
                 font-size: 2rem;
-                display: grid;
+                display: none;
                 background-color: var(--subBg);
-                height: 6rem;
+                height: 9rem;
                 grid-template-columns: 3fr 2fr 1fr;
+                text-align: right;
             }
+                .subtotal p{
+                    grid-column: 2 / 3;
+                }
+                .subtotal a{
+                    color: var(--darkAccent);
+                    transition: all 0.1s ease-in;
+                }
+                    .subtotal a:hover{
+                        cursor: pointer;
+                        background-color: initial;
+                        font-size: 2.2rem;
+                    }
 
-            .subtotal p{
-                grid-column: 2 / 3;
-            }
-
-            .checkout{
-                font-size: 2rem;
-                text-align: center;
-                height: 100px;
-                padding-top: 50px;
-                background-color: var(--mainBg);
-            }
-            
-            .checkout a{
-                margin: 0;
-            }
-
-            .checkout a:hover{
-                cursor: pointer;
-            }
             @media screen and (max-width: 1000px){
                 .subtotal{
                     grid-template-columns: 1fr 2fr;
@@ -150,24 +180,25 @@
 
     <body>
         <nav class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
-            <a href="menu.html">Menu</a>
-            <a href="events.html">Events</a>
-            <a href="reservations.html">Reservations</a>
-            <a href="#contact">Contact Us</a>
-            <a href="cart.html"></a>
+            <a class="pageLink"href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
+            <a class="pageLink"href="menu.html">Menu</a>
+            <a class="pageLink"href="events.html">Events</a>
+            <a class="pageLink"href="reservations.html">Reservations</a>
+            <a class="pageLink"href="contact-us.html">Contact Us</a>
+            <a class="pageLink"href="about-us.html">About Us</a>
+            <a class="pageLink"href="employment.html">Employment</a>
+            <button onclick="updateNavBar()">&#9776;</button>
+            <a class="pageLink"href="cart.html"></a>
         </nav>
 
         <h1 class="pageHeader">Cart</h1>
         <section class="cartItems">
         </section>
         <div class="subtotal">
-            <p>SUBTOTAL: $<span id="subtotal">0.00</span></p>
-        </div>
-        <div class="checkout">
-            <a href="checkout.html">CHECKOUT</a>
+            <p>SUBTOTAL: $<span id="subtotal">0.00</span><br><a href="checkout.html">CHECKOUT &raquo;</a></p>
         </div>
     </body>
 
     <script src="cart.js"></script>
+    <script src="general.js"></script>
 </html>

@@ -3,6 +3,9 @@ var docFrag = new DocumentFragment();
 displayCart();
 
 function calcSubtotal(cart){
+    var subtotalDiv = document.querySelector(".subtotal");
+    subtotalDiv.style.display = 'grid';
+
     // calculating the subtotal
     var subtotalElement = document.getElementById("subtotal");
     // get the data.ids within cart
@@ -23,6 +26,24 @@ function displayCart(){
     // remove all cart items
     while (cartBody.firstChild) {
         cartBody.removeChild(cartBody.firstChild);
+    }
+
+    if(Object.keys(cart).length === 0){ // if the cart is empty, no need to render anything
+        var subtotalDiv = document.querySelector(".subtotal");
+        subtotalDiv.style.display = 'none';
+
+        var body = document.querySelector("body");
+
+        var noItemsDiv = document.createElement('div');
+        noItemsDiv.classList.add('noItems');
+        noItemsDiv.innerText = "No items in your cart.";
+        var menuLink = document.createElement('a');
+        menuLink.setAttribute("href", "menu.html");
+        menuLink.innerText = 'Add some';
+        noItemsDiv.appendChild(menuLink);
+
+        body.insertBefore(noItemsDiv, cartBody);
+        return;
     }
 
     // add cart items back
@@ -70,15 +91,13 @@ function displayCart(){
     cartBody.appendChild(docFrag);
 
 // Ideally the HTML should look like this:
-//     <section class="cartItems">
-//          <div class="item">
-//              <img src="*insert URL here*">
+//      <div class="item">
+//          <img src="*insert URL here*">
 //              <p>Name</p>
 //              <p>Quantity: <span><input type="number" value="*insert quantity*"></span></p>
 //              <p>Price: $<span>4.99</span></p>
 //              <button>Remove</button>
-//          </div>
-//      </section>
+//      </div>
 }
 
 // wrapper event listener so the variable "id" can be passed to removeFromCart

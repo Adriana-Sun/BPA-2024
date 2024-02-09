@@ -7,8 +7,21 @@ addButtons.forEach(button => {
         var data = {...button.dataset};   // gets all the special "data-" variables 
         // (... is what specifies all and .dataset is what specifies to get "data-" variables)
         addToCart(data);    // data should be a JSON
-        alertElement.style.opacity = '1';
-        setInterval(() => alertElement.style.opacity = '0', 3500);
+
+        // displaying the alert that menu item has been added
+        alertElement.style.display = 'block';
+        setTimeout(function(){
+            alertElement.style.opacity = '1';
+        }, 100);
+
+        // hide alert after 3.5 seconds
+        setInterval(() => {
+            alertElement.style.opacity = '0';
+            setTimeout(function(){
+                alertElement.style.display = 'none';
+            }, 600)
+            
+        }, 3500);
     });
 });
 

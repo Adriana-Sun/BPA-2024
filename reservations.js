@@ -33,8 +33,22 @@ submitButtons.forEach(button => {
             resIdNotif.style.display = "block";
         }
 
-        alertElement.style.opacity = '1';
-        setInterval(() => alertElement.style.opacity = '0', 3500);
+        button.addEventListener("click", () => {
+            // displaying the "success!" alert
+            alertElement.style.display = 'block';
+            setTimeout(function(){
+                alertElement.style.opacity = '1';
+            }, 100);
+    
+            // hide alert after 3.5 seconds
+            setInterval(() => {
+                alertElement.style.opacity = '0';
+                setTimeout(function(){
+                    alertElement.style.display = 'none';
+                }, 600)
+                
+            }, 3500);
+        });
     });
 });
 

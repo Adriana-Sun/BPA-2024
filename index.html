@@ -16,9 +16,10 @@
                 display: flex;
                 margin-top: 60px;
                 height: 60vh;
-                background: linear-gradient( rgba(0, 0, 0, 0.368), rgba(91, 0, 0, 0.522) ), url("images/placeholder-header.jpeg");
+                background: linear-gradient( rgba(0, 0, 0, 0.675), rgba(126, 0, 0, 0.455) ), url("images/header.jpeg");
                 background-size: cover;
-                background-position-y: 60vh;
+                background-position-y: 80vh;
+                background-attachment: fixed;
                 text-align: center;
             }
                 .homeWrapper{
@@ -50,7 +51,7 @@
                     width: 100%;
                     margin: 1em auto;
                     color: var(--subBg);
-                    text-shadow: 1px 1px var(--subAccent);
+                    /* text-shadow: 1px 1px var(--subAccent); */
                     text-align: center;
                 }
                 .menuContainer{
@@ -102,6 +103,7 @@
                             margin-left: 10px;
                             margin-top: 12.5px;
                             vertical-align: middle;
+                            /* overflow: scroll; */
                         }
                         .menuWrapper .slideItem:last-child{
                             margin-right: 10px;
@@ -142,12 +144,18 @@
                     }
                 }
 
+                @media screen and (max-width: 400px){
+                    .menuContainer{
+                        height: 600px;
+                    }
+                }
+
             .eventsHeader{
                 font: bold 3rem "Lexend", sans-serif;
                 width: 100%;
                 margin: 2em em;
                 color: var(--subBg);
-                text-shadow: 1px 1px var(--subAccent);
+                /* text-shadow: 1px 1px var(--subAccent); */
                 text-align: center;
             }
             .eventsContainer{
@@ -199,6 +207,7 @@
                         margin-top: 12.5px;
                         margin-left: 15px;
                         vertical-align: middle;
+                        /* overflow: scroll; */
                     }
                         .eventsWrapper .slideItem:last-child{
                             margin-right: 15px;
@@ -239,22 +248,32 @@
                         width: calc(100% - 20px);
                     }
                 }
+
+                @media (max-width: 500px){
+                    .eventsContainer{
+                        height: 700px;
+                    }
+                }
         </style>
     </head>
 
     <body>
-        <div class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
-            <a href="menu.html">Menu</a>
-            <a href="#events">Events</a>
-            <a href="reservations.html">Reservations</a>
-            <a >Contact Us</a>
-        </div>
-        
+        <nav class="navBar">
+            <a class="pageLink"href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
+            <a class="pageLink"href="menu.html">Menu</a>
+            <a class="pageLink"href="events.html">Events</a>
+            <a class="pageLink"href="reservations.html">Reservations</a>
+            <a class="pageLink"href="contact-us.html">Contact Us</a>
+            <a class="pageLink"href="about-us.html">About Us</a>
+            <a class="pageLink"href="employment.html">Employment</a>
+            <button onclick="updateNavBar()">&#9776;</button>
+            <a class="pageLink"href="cart.html"></a>
+        </nav>
+
         <div class="homeHeader">
             <div class="homeWrapper">
                 <h1>Game Day Grill</h1>
-                <a class="orderButton" href="menu.html">Order now</a>
+                <a class="orderButton pageLink" href="menu.html">Order now</a>
             </div>
         </div>
         
@@ -264,13 +283,13 @@
             <button class="arrowSlider" id="left">&lt;</button>
             <div class="menuWrapper">
                 <div class="slideItem" draggable="false">
-                    <!-- Note: https://www.flickr.com/photos/30478819@N08/50204515612 is the source
-                        of the image. The license requires it to be linked back. -->
+                    <!-- Original photo: https://foto.wuestenigel.com/burger-and-fries-on-dark-background/
+                        The license requires it to be linked back: https://creativecommons.org/licenses/by/2.0/ -->
                     <img src="images/burger-fries.jpeg" class="slideImg" alt="Image of a double burger and fries in the background">
                     <div class="slideText">
                         <h1>Classic Double GameBurger</h1>
-                        <p>A classic layered with cheese, lettuce, mayo, and includes small fries!</p>
-                        <p>$13.99 </p>
+                        <p>Our classic burger layered with cheese, lettuce, mayo, and includes medium fries on the side!</p>
+                        <p>$9.99 </p>
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
@@ -278,15 +297,15 @@
                         Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
                         Author: Debbie Tingzon 
                         License: Creative Commons by 2.0-->
-                    <img src="images/rib-eyed-steak.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
+                    <img src="images/rib-eye-steak.avif" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
                     <div class="slideText">
                         <h1>Grandma's Rib-Eye Steak</h1>
-                        <p>A 18 ounce steak so delicious even your grandma would approve! </p>
+                        <p>A sliced steak with asparagus, so delicious even your grandma would approve! </p>
                         <p>$19.99 </p>
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
-                    <img src="images/brownies.jpeg" class="slideImg" alt="Image of brownies with chocolate drizzle on top">
+                    <img src="images/brownies.jpeg" class="slideImg" alt="A chocolate brownie on a white plate decorated with chocolate drizzle">
                     <div class="slideText">
                         <h1>Triple Chocolate Brownies</h1>
                         <p>Fresh brownies with chocolate drizzle and ganache filling.</p>
@@ -294,19 +313,21 @@
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <img src="images/passion-fruit-daiquiri.jpeg" class="slideImg">
                     <div class="slideText">
-                        <h1>Burger with fries 4</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                        <h1>Passion Fruit Daquiri</h1>
+                        <p>A smooth, sweet drink that pairs perfectly with night of fun and laughter.</p>
+                        <p>$8.99</p>
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <!-- original source: https://foto.wuestenigel.com/cottage-cheese-sweet-balls-deep-fried/
+                        license: https://creativecommons.org/licenses/by/2.0/ -->
+                    <img src="images/cheese-louise.jpeg" class="slideImg">
                     <div class="slideText">
-                        <h1>Burger with fries 5</h1>
-                        <p>A delicious quarter-pound burger that comes with fries on the side!</p>
-                        <p>$6.99 </p>
+                        <h1>Cheese Louise!</h1>
+                        <p>Deep fried mozzarella balls that fill your mouth with delicious cheese in every bite.</p>
+                        <p>$6.99</p>
                     </div>
                 </div>
             </div>
@@ -319,21 +340,21 @@
             <button class="arrowSlider" id="left">&lt;</button>
             <div class="eventsWrapper">
                 <div class="slideItem" draggable="false">
-                    <img src="images/burger-fries.jpeg" class="slideImg">
+                    <img src="images/promotion.png" class="slideImg">
                     <div class="slideText">
                         <h1>New Year's Gift Card</h1>
                         <p>To celebrate the entrance of 2024, we're giving a $10 gift card whenever you place an order of $50 or more. So what are you waiting for? Get grilling!</p>
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
-                    <img src="images/brownies.jpeg" class="slideImg">
+                    <img src="images/football-touchdown.jpg" alt="Ohio State running back Chip Trayanum (19) runs for a touchdown during the second quarter against Western Kentucky"class="slideImg">
                     <div class="slideText">
                         <h1>Watch The Latest Sports Games</h1>
                         <p>Here at Game Day Grill, we have the latest matches from all your favorite teams at the ready. Grab a drink, a couple of friends, sit back and enjoy our widescreen TVs!</p>
                     </div>
                 </div>
                 <div class="slideItem" draggable="false">
-                    <img src="images/rib-eyed-steak.jpeg" class="slideImg">
+                    <img src="images/pool-table.jpg!d" alt="Two female friends enjoying pool game" class="slideImg">
                     <div class="slideText">
                         <h1>Play Games With Your Friends and Family</h1>
                         <p>Want something else to do during off-season? We offer a variety of games, tables, and places to have fun while you eat! Every day is a Game Day.</p>
@@ -341,41 +362,49 @@
                 </div>
                 <div class="slideItem" draggable="false">
                     <p>Still interested?</p>
-                    <a href="#events"tabindex="1">Learn More</a>
+                    <a href="#events"tabindex="0">Learn More</a>
                 </div>
             </div>
             <button class="arrowSlider" id="right">&gt;</button>
         </div>
 
-        <div id="box">
-            <a href="index.html">
-                <img class="logo" src="https://th.bing.com/th/id/OIP.zISRSOrQF36FlkP0kYMCiwHaHa?rs=1&pid=ImgDetMain">
-            </a>
-            <a class="bar-info" href = "#contact">CONTACT US</a>
-            <a class="bar-info" href = "#employment">EMPLOYMENT</a>
-            <a class="bar-info" href = "#location">LOCATION</a>
-            <a class="bar-info" href = "#nutrition">NUTRITION INFORMATION</a>
-            <a class="bar-info" href = "about-us.html">OUR STORY</a>
-            <a class="bar-info" href = "about-us.html">WHO WE ARE</a>
-            <a class="lower-info" href = "#copyright">COPYRIGHT @ 2023 GAME DAY GRILL ALL RIGHTS RESERVED</>
-            <a class="lower-info" href = "https://brinker.com/terms-and-conditions">TERMS & CONDITIONS</a>
-            <a class="lower-info" href = "#map">SITE MAP</a>
-            <a class="lower-info" href = "#web">WEB ACCESSIBILITY</a>
-            <a class="lower-info" href = "https://brinker.com/privacy">PRIVACY POLICY</a>
-            <a href="index.html">
-                <img class="button" src="https://pluspng.com/img-png/download-on-app-store-png-how-to-download-the-app-1945.png" width="100" height="75">
-            </a>
-            <a href="index.html">
-                <img class="button" src="https://th.bing.com/th/id/OIP.YbA4ryLXGwofx2VAulyCvQHaEx?rs=1&pid=ImgDetMain" width="100" height="100">
-            </a>
-            <a href="https://www.facebook.com/">
-                <img class="button" src="https://www.pngkit.com/png/full/213-2133094_like-us-on-facebook-logo-high-resolution.png" width="100" height="75">
-            </a>
-            <a href="https://twitter.com/">
-                <img class="button" src="https://logodix.com/logo/654074.png" width="100" height="75">
-            </a>
-        </div>
+        <footer>
+            <section class="links">
+                <img src="images/icon.PNG"> <br>
+                <h1>Follow us!</h1>
+                <div class="socialMedia">
+                    <a href="facebook.com"><img src="images/Facebook_Logo_Secondary.png"></a>
+                    <a href="instagram.com"><img src="images/Instagram_Glyph_White.png"></a>
+                </div>
+                
+            </section>
+            <section class="info">
+                <div class="hours">
+                    <h1>Hours of Operation:</h1>
+                    <ul>
+                        <strong><i>Mon-Fri:</i></strong>
+                        <br>insert timings here<br><br>
+                        <strong><i>Saturday:</i></strong>
+                        <br>Closed<br><br>
+                        <strong><i>Sunday:</i></strong>
+                        <br>Closed<br>
+                    </ul>
+                </div>
+                <div class="Contact">
+                    <h1>Contact Us:</h1>
+                    <ul>
+                        <strong><i>Phone Number:</i></strong>
+                        <br>214-123-3467<br><br>
+                        <strong><i>Email:</i></strong>
+                        <br>gamedaygrill2324@gmail.com<br><br>
+                        <strong><i>Address:</i></strong>
+                        <br>1705 W Sycamore St, Denton, TX 76201<br>
+                    </ul>
+                </div>
+            </section>
+        </footer>
     </body>
 
     <script src="index.js"></script>
+    <script src="general.js"></script>
 </html>

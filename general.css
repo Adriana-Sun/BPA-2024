@@ -19,22 +19,22 @@ body {
     margin: auto; /* this centers the body horizontally */
     color: var(--mainText);
     font: 1rem "Lexend", sans-serif; /* font size is subject to change depending on accessibility */
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
 .navBar{
     width: 100%;
     max-width: 1800px;
     height: 60px;
-    /* border-bottom: 3px solid var(--subBg); */
     box-shadow: 0px 5px 5px #010c133b;
     background-color: var(--darkAccent);
     position: fixed;
     top: 0;
-    overflow: hidden;
     z-index: 2;
 }
 
-.navBar a {
+.navBar a{
     color: white;
     line-height: 60px;
     text-align: center;
@@ -44,14 +44,27 @@ body {
     height: 60px;
     float: left;
     background-color: var(--darkAccent);
-    transition: all 0.3s ease-out;  /* to make the links fade in and out when hovered */
+    transition: background-color 0.3s ease-in;  /* to make the links fade in and out when hovered */
 }
 
-.navBar a:hover{
+.navBar button{
+    display: none;
+    float: right;
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    background-color: var(--darkAccent);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease-in;  /* to make the button fade in and out when hovered */
+}
+
+.navBar a:hover, .navBar button:hover{
+    cursor: pointer;
     background-color: var(--subAccent);
 }
 
-.navBar a:focus, .navBar a:last-child:focus{
+.navBar a:focus, .navBar a:last-child:focus, .navBar button:focus{
     outline: none;
     background-color: var(--subAccent);
 }
@@ -66,17 +79,20 @@ body {
 }
 
 .navBar a:first-child{
-    background-image: url("images/icon.PNG");
-    background-size: 20%;
-    background-position: 2.5%;
-    background-repeat: no-repeat;
-    padding-left: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
     font-family: "Bungee", sans-serif;
     color: black;
     margin: auto;
 }
 
-.navBar a:first-child span{
+.navBar a:first-child img{
+    height: 60px;
+}
+
+.navBar a:first-child p{
     background-color: var(--mainText);
     background-image: linear-gradient(
             45deg,
@@ -91,8 +107,8 @@ body {
     animation: move-text-bg-reverse 0.5s ease forwards;
 }
 
-.navBar a:first-child span:hover{
-        animation: move-text-bg 0.5s ease-in forwards;
+.navBar a:first-child p:hover{
+    animation: move-text-bg 0.5s ease-in forwards;
 }
 
 @keyframes move-text-bg {
@@ -126,48 +142,108 @@ body {
     background-repeat: no-repeat;
 }
 
+footer{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: var(--subBg);
+    text-align: center;
+    color: white;
+    padding: 50px 0px;
+    font-size: 1.2rem;
+}
+    footer img{
+        width: 150px;
+        margin: auto;
+    }
+    footer h1{
+        text-shadow: 2px 2px 0px var(--subBg);
+    }
+    footer section{
+        width: 90%;
+        height: calc(90% - 50px);
+        margin: auto;
+        padding: 50px 15px;
+        border-radius: 10px;
+    }
+        footer .links h1{
+            text-shadow: 2px 2px 0px var(--darkAccent);
+        }
+        footer .socialMedia{
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+            footer .socialMedia a:hover{
+                background-color: transparent;
+            }
+            footer .socialMedia img{
+                width: 50px;
+                margin: auto 10px;
+                transition: all 0.2s ease-in;
+            }
+            footer .socialMedia img:hover{
+                transform: scale(1.1);
+            }
+        footer .info{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background-color: var(--darkAccent);
+            transition: all 0.2s ease;
+        }
+        footer .info:hover{
+            transform: scale(1.01);
+        }
+        footer section ul{
+            padding-left: 0;
+        }
+
 /* might change this to be a js function */
-@media screen and (max-width: 800px){
+@media screen and (max-width: 1100px){
     .navBar > a{
         display: none;
     }
-    .navBar a:first-child, .navBar a:last-child{
+
+    .navBar.responsive button {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .navBar.responsive a:last-child{
+        position: absolute;
+        right: 60px;
+        top: 0;
+    }
+    .navBar.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .navBar a:first-child{
+        display: flex;
+        justify-content: left;
+    }
+    .navBar a:last-child, .navBar button{
         display: block;
     }
 }
-footer {
-    text-align: center;
-    padding: 3px;
-    background-color: var(--subBg);
-    color: white;
-    margin-bottom: 20px;
+
+@media screen and (max-width: 800px){
+    footer{
+        grid-template-columns: 1fr;
+    }
+    footer .info{
+        grid-template-columns: 1fr;
+    }
 }
 
-#logo{
-    width: 95px;
-    height: 145px;
+@media screen and (max-width: 450px){
+    .navBar a p{
+        display: none;
+    }
+    .navBar a:first-child{
+        margin-left: 5px;
+        background-size: 70%;
+    }
 }
 
-.bar-link{
-    top: -300px;
-    font-size: 2rem;
-    margin-right: 300px;
-    text-align: center;
-}
-.info-contact{
-    text-align: left;
-    margin-top: -20px;
-}
-.info-contact1{
-    text-align: right;
-    margin-top: -250px;
-
-}
-.info-contact2{
-    text-align: center;
-    margin-top: -300px;
-}
-
-
-/* just need a top border, so this should be changed from
-    "border" shorthand to "border-top: 1px solid black;" */

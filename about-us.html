@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
-        <title>About Us</title>
+        <title>Game Day Grill</title>
+        <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Linking the General CSS Sheet -->
         <link href="general.css" rel="stylesheet">
@@ -17,12 +18,15 @@
                 text-align: left;
                 padding-top: 150px;
             }
-            .side-pics {
-                border: 7px solid orangered;
+            img {
+                border-radius: 10px;
             }   
+            h1{
+                color: var(--darkAccent);
+            }
             #picture{
                 float:left;
-                width:300p;
+                width:300px;
                 height: 200px;
             }
             #author{
@@ -48,30 +52,46 @@
             .who-move{
                 text-align: left;
                 margin-top: -20px;
+                margin-right: 20px;
             }
             #about-pic1{
                 width:350px;
                 height:200px;
-                padding-top: 40px;
+                margin-top: 40px;
                 
                 float:left;
             }
             #about-pic2{
                 width:300px;
                 height:200px;
-                padding-top: 40px;
+                margin-top: 40px;
                 padding-left: 100px;
                 float:center;
             }
             #about-pic3{
                 width:350px;
                 height:200px;
-                padding-top: 40px;
+                margin-top: 40px;
                 margin-right: -5px;
                 float:right;
             }
             .about-info{
                 padding-top: 20px;
+                text-align: center;
+                margin-left: 10px; 
+                margin-right: 10px;
+            }
+
+
+            #logo{
+                width: 250px;
+                height: 350px;
+                padding-top: 50px;
+            }
+            
+            .bar-link{
+                font-size: 2rem;
+                margin-right: 300px;
                 text-align: center;
             }
             
@@ -79,13 +99,17 @@
         </style>
     </head>
     <body>
-        <div class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
-            <a href="menu.html">Menu</a>
-            <a href="#events">Events</a>
-            <a href="reservations.html">Reservations</a>
-            <a href="contact-us.html">Contact Us</a>
-        </div>
+        <nav class="navBar">
+            <a class="pageLink"href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
+            <a class="pageLink"href="menu.html">Menu</a>
+            <a class="pageLink"href="events.html">Events</a>
+            <a class="pageLink"href="reservations.html">Reservations</a>
+            <a class="pageLink"href="contact-us.html">Contact Us</a>
+            <a class="active pageLink"href="about-us.html">About Us</a>
+            <a class="pageLink"href="employment.html">Employment</a>
+            <button onclick="updateNavBar()">&#9776;</button>
+            <a class="pageLink"href="cart.html"></a>
+        </nav>
 
         <div class="width-spacing">
         
@@ -110,7 +134,7 @@
             <hr>
         
             <img src="https://live.staticflickr.com/3782/11288991255_1da24b36cd_b.jpg" id="about-pic1">
-            <img src="https://cdn.discordapp.com/attachments/1188893176090611846/1191906229065351258/icon.PNG?ex=65a7242d&is=6594af2d&hm=a301b361f892f19023e6a03f9a6211a9088de78aff84f91b7b30e8c11e38851e&" id="about-pic2">
+            <!-- <img src="https://cdn.discordapp.com/attachments/1188893176090611846/1191906229065351258/icon.PNG?ex=65a7242d&is=6594af2d&hm=a301b361f892f19023e6a03f9a6211a9088de78aff84f91b7b30e8c11e38851e&" id="about-pic2"> -->
             <img src="https://live.staticflickr.com/65535/51686772662_80b7b2301b_b.jpg" id="about-pic3">
             <div class="about-info">
                 <h1>ABOUT US<br></h1>
@@ -125,68 +149,24 @@
             
             
             <h1 style="text-align: center; font-size: 2em calibri;">Concerning the Website Creators</h1>
-            <img src="https://biz.prlog.org/national_bpa/logo.png" style="width: 250px; height: 90px; float: left; margin-top: -100px;">
-            <img src="https://biz.prlog.org/national_bpa/logo.png" style="width: 250px; height: 90px; float: right; margin-top: -100px;">
-            <h2>Team and Competition details</h2>
-            <p>Website created for BPA Website Design (435) Competition 2023-2024 <br>
+            <h2>Competition Details</h2>
+            <p>Website created as a part of BPA Website Design Competition (435) 2023-2024 <br>
                 Theme: Seize the Opportunity
             <br>
-            Website Design Team from Texas Academy of Mathematics and Science, Denton, TX. Secondary Division (9-12)</p>
+            Website Design Team from Texas Academy of Mathematics and Science, Denton, TX</p>
             <h2>Members and Roles</h2>
-            <p>Adriana Sun (Member 00147319): Main Programmer, Team Captain
-            <br>Shriya Dontula(Member 00147322:) Lead Programmer
+            <p>Adriana Sun (Member 00147319): Main Programmer, Team Captain, Graphic Designer
+            <br>Shriya Dontula (Member 00147322:) Lead Programmer
             </p>
             <h2>Product Details</h2>
             <p>
-                Web Development Technology: Microsoft Visual Studio <br>
+                <b>Game Day Grill icon/logo and shopping bag icon are hand-drawn, original works.</b><br>
                 Languages: HTML, CSS, Javascript <br>
                 <b>Product was entirely created using the stated coding languages above.</b> <br>
                 Duration of Product Creation: 10 days (12/27/2023 - 1/05/2024) <br>
                 <b>Due to unfortunate circumstances with the organization of the Texas Academy of Mathematics and Science BPA chapter, the members only were able to start on the 27th of December, giving them ten days to develop the product.</b>
             </p>
         </div>
-       
-        <footer>
-          
-            <a class="bar-link" style="margin-left: 300px;" href = "about-us.html">ABOUT US</a>
-            <a class="bar-link" href = "employment.html">EMPLOYMENT</a>
-
-            <br>
-            <br>
-            <div class="info-contact">
-                <h2>Our Hours</h2>
-                <h3>Sunday</h3>
-                <p>12:00pm - 3:00am</p>
-                <h3>Monday - Friday</h3>
-                <p>11:00am - 3:00pm</p>
-                <p>7:30pm - 12:00am</p>
-                <h3>Saturday</h3>
-                <p>6:00pm - 3:00am</p>
-                <h4>© 2024 GAME DAY GRILL ALL RIGHTS RESERVED </h4>
-            </div>
-            
-
-            <div class="info-contact2">
-                <h2>Follow Us</h2>
-                <h3>Get notified of any and all special events.</h3>
-                <a href="https://www.instagram.com/">INSTAGRAM</a> <br>
-                <a href="https://m.facebook.com/?wtsid=rdr_0wifGKQJshSdwGkA9">FACEBOOK</a> <br>
-                <a href="https://www.yelp.com/login?return_url=https%3A%2F%2Fwww.yelp.com%2F">YELP</a>
-            </div>
-            <a href="index.html">
-                <img id="logo" src=https://cdn.discordapp.com/attachments/1188893176090611846/1191906229065351258/icon.PNG?ex=65a7242d&is=6594af2d&hm=a301b361f892f19023e6a03f9a6211a9088de78aff84f91b7b30e8c11e38851e&">
-            </a>
-            
-            <div class="info-contact1">
-                <h2>Contact Us</h2>
-                <p>Telephone Number: 214-123-3467</p>
-                <p>Email Address: <a href="gamedaygrill2324@gmail.com">gamedaygrill2324@gmail.com</a></p>
-                <h2>Location</h2>
-                <p>1705 W Sycamore St, Denton, TX 76201</p>
-            </div>
-          </footer>
-          
-        
     </body>
-
+    <script src="general.js"></script>
 </html>

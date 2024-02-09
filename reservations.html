@@ -13,17 +13,20 @@
         <!-- Page-Specific CSS -->
         <style>
             #alert{
+                display: none;
                 position: fixed;
-                top: 80px;
+                top: 0px;
                 left: 0;
                 right: 0;
                 width: 60%;
                 margin: 5% auto;
                 padding: 20px;
-                background-color: var(--mainBg);
+                background-color: var(--subBg);
                 color: var(--mainText);
                 border-radius: 10px;
+
                 opacity: 0;
+
                 transition: opacity 0.6s; /* 600ms to fade */
                 text-align: center;
             }
@@ -194,11 +197,11 @@
             }
 
             input[type="submit"].invalidSubmitAnimation{
-                animation: invalid-submit-shake 0.2s ease forwards;
+                animation: invalid-submit-shake 0.2s;
             }
 
             @keyframes invalid-submit-shake{
-                10% {
+                0% {
                     transform: translate(0px, -3px);
                 }
                 40% {
@@ -216,12 +219,15 @@
 
     <body>
         <nav class="navBar">
-            <a href="index.html"><span>Game Day Grill</span></a>
-            <a href="menu.html">Menu</a>
-            <a href="events.html">Events</a>
-            <a class="active" href="reservations.html">Reservations</a>
-            <a href="contact-us.html">Contact Us</a>
-            <a href="cart.html"></a>
+            <a class="pageLink"href="index.html"><img src="images/icon.PNG"><p>Game Day Grill</p></a>
+            <a class="pageLink"href="menu.html">Menu</a>
+            <a class="pageLink"href="events.html">Events</a>
+            <a class="active pageLink"href="reservations.html">Reservations</a>
+            <a class="pageLink"href="contact-us.html">Contact Us</a>
+            <a class="pageLink"href="about-us.html">About Us</a>
+            <a class="pageLink"href="employment.html">Employment</a>
+            <button onclick="updateNavBar()">&#9776;</button>
+            <a class="pageLink"href="cart.html"></a>
         </nav>
 
         <div id="alert">
@@ -307,4 +313,5 @@
     </body>
 
     <script src="reservations.js"></script>
+    <script src="general.js"></script>
 </html>
