@@ -5,7 +5,7 @@
         <link rel="icon" type="image/png" href="images/icon.PNG">
 
         <!-- Linking the General CSS Sheet -->
-        <link href="general.css" rel="stylesheet">
+        <link href="general.css" rel="stylesheet">   <!-- Setting favicon -->
 
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
@@ -44,6 +44,11 @@
                         font: bold 18px "Lexend", sans-serif;
                         color: white;
                         margin-top: 50px;
+                        transition: all 0.2s ease-out;
+                    }
+                    .homeWrapper a:hover{
+                        background-color: var(--subAccent);
+                        border-color: var(--subAccent);
                     }
 
                 .menuHeader{
@@ -240,6 +245,7 @@
                             color: white;
                         }
                         .eventsWrapper a:hover{
+                            transition: all 0.2s ease-out;
                             cursor: pointer;
                             background-color: var(--subAccent);
                         }
@@ -297,7 +303,7 @@
                         Title: 12oz Rib Eye Steak with Mashed Potatoes and Buttered Broccoli
                         Author: Debbie Tingzon 
                         License: Creative Commons by 2.0-->
-                    <img src="images/rib-eye-steak.avif" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
+                    <img src="images/steak-with-mashed-potatoes.jpeg" class="slideImg" alt="Image of a rib-eyed steak with mashed potatoes and broccoli">
                     <div class="slideText">
                         <h1>Grandma's Rib-Eye Steak</h1>
                         <p>A sliced steak with asparagus, so delicious even your grandma would approve! </p>
@@ -362,7 +368,7 @@
                 </div>
                 <div class="slideItem" draggable="false">
                     <p>Still interested?</p>
-                    <a href="#events"tabindex="0">Learn More</a>
+                    <a class="pageLink"href="events.html"tabindex="0">Learn More</a>
                 </div>
             </div>
             <button class="arrowSlider" id="right">&gt;</button>
