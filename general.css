@@ -148,7 +148,7 @@ footer{
     background-color: var(--subBg);
     text-align: center;
     color: white;
-    padding: 50px 0px;
+    padding: 5%;
     font-size: 1.2rem;
 }
     footer img{
@@ -156,6 +156,8 @@ footer{
         margin: auto;
     }
     footer h1{
+        color: white; 
+        /* ^^ need to write this line of code again because of the about-us.html css */
         text-shadow: 2px 2px 0px var(--subBg);
     }
     footer section{
