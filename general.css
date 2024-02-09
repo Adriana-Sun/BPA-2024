@@ -135,7 +135,38 @@ body {
         display: block;
     }
 }
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: var(--subBg);
+    color: white;
+    margin-bottom: 20px;
+}
 
+#logo{
+    width: 95px;
+    height: 145px;
+}
+
+.bar-link{
+    top: -300px;
+    font-size: 2rem;
+    margin-right: 300px;
+    text-align: center;
+}
+.info-contact{
+    text-align: left;
+    margin-top: -20px;
+}
+.info-contact1{
+    text-align: right;
+    margin-top: -250px;
+
+}
+.info-contact2{
+    text-align: center;
+    margin-top: -300px;
+}
 
 
 /* just need a top border, so this should be changed from
